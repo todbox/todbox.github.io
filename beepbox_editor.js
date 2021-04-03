@@ -37,7 +37,7 @@ var beepbox = (function (exports) {
         { name: "dbl harmonic :(", realName: "double harmonic minor", flags: [true, false, true, true, false, false, true, true, true, false, false, true] },
         { name: "strange", realName: "whole tone", flags: [true, false, true, false, true, false, true, false, true, false, true, false] },
         { name: "expert", realName: "chromatic", flags: [true, true, true, true, true, true, true, true, true, true, true, true] },
-        { name: "dumb", realName: "dumb", flags: [false, false, false, true, false, true, true, true, true, false, false, true] },
+        { name: "dumb", realName: "dumb", flags: [true, false, false, false, false, true, true, true, true, false, false, true] },
     ]);
     Config.keys = toNameMap([
         { name: "C", isWhiteKey: true, basePitch: 12 },
@@ -228,10 +228,10 @@ var beepbox = (function (exports) {
     Config.harmonicsMax = (1 << Config.harmonicsControlPointBits) - 1;
     Config.harmonicsWavelength = 1 << 11;
     Config.pulseWidthRange = 8;
-    Config.pitchChannelCountMin = 1;
-    Config.pitchChannelCountMax = 6;
+    Config.pitchChannelCountMin = 0;
+    Config.pitchChannelCountMax = 8;
     Config.noiseChannelCountMin = 0;
-    Config.noiseChannelCountMax = 3;
+    Config.noiseChannelCountMax = 4;
     Config.noiseInterval = 6;
     Config.pitchesPerOctave = 12;
     Config.drumCount = 12;
@@ -397,7 +397,7 @@ var beepbox = (function (exports) {
         }
     }
     EditorConfig.version = "3.0.13";
-    EditorConfig.versionDisplayName = "BeepBox " + EditorConfig.version;
+    EditorConfig.versionDisplayName = "TodBox " + EditorConfig.version;
     EditorConfig.presetCategories = toNameMap([
         { name: "Custom Instruments", presets: toNameMap([
                 { name: "chip wave", customType: 0 },

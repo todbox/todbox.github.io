@@ -78,13 +78,14 @@ var beepbox = (function (exports) {
         { name: "rounded", volume: 0.94, samples: centerWave([0.0, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.95, 0.9, 0.85, 0.8, 0.7, 0.6, 0.5, 0.4, 0.2, 0.0, -0.2, -0.4, -0.5, -0.6, -0.7, -0.8, -0.85, -0.9, -0.95, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -0.95, -0.9, -0.85, -0.8, -0.7, -0.6, -0.5, -0.4, -0.2]) },
         { name: "triangle", volume: 1.0, samples: centerWave([1.0 / 15.0, 3.0 / 15.0, 5.0 / 15.0, 7.0 / 15.0, 9.0 / 15.0, 11.0 / 15.0, 13.0 / 15.0, 15.0 / 15.0, 15.0 / 15.0, 13.0 / 15.0, 11.0 / 15.0, 9.0 / 15.0, 7.0 / 15.0, 5.0 / 15.0, 3.0 / 15.0, 1.0 / 15.0, -1.0 / 15.0, -3.0 / 15.0, -5.0 / 15.0, -7.0 / 15.0, -9.0 / 15.0, -11.0 / 15.0, -13.0 / 15.0, -15.0 / 15.0, -15.0 / 15.0, -13.0 / 15.0, -11.0 / 15.0, -9.0 / 15.0, -7.0 / 15.0, -5.0 / 15.0, -3.0 / 15.0, -1.0 / 15.0]) },
         { name: "square", volume: 0.5, samples: centerWave([1.0, -1.0]) },
+	{ name: "1/3 pulse", volume: 0.5, samples: centerWave([1.0, -1.0, -1.0]) },
         { name: "1/4 pulse", volume: 0.5, samples: centerWave([1.0, -1.0, -1.0, -1.0]) },
+	{ name: "1/5 pulse", volume: 0.5, samples: centerWave([1.0, -1.0, -1.0, -1.0, -1.0]) },
         { name: "1/8 pulse", volume: 0.5, samples: centerWave([1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0]) },
         { name: "sawtooth", volume: 0.65, samples: centerWave([1.0 / 31.0, 3.0 / 31.0, 5.0 / 31.0, 7.0 / 31.0, 9.0 / 31.0, 11.0 / 31.0, 13.0 / 31.0, 15.0 / 31.0, 17.0 / 31.0, 19.0 / 31.0, 21.0 / 31.0, 23.0 / 31.0, 25.0 / 31.0, 27.0 / 31.0, 29.0 / 31.0, 31.0 / 31.0, -31.0 / 31.0, -29.0 / 31.0, -27.0 / 31.0, -25.0 / 31.0, -23.0 / 31.0, -21.0 / 31.0, -19.0 / 31.0, -17.0 / 31.0, -15.0 / 31.0, -13.0 / 31.0, -11.0 / 31.0, -9.0 / 31.0, -7.0 / 31.0, -5.0 / 31.0, -3.0 / 31.0, -1.0 / 31.0]) },
         { name: "double saw", volume: 0.5, samples: centerWave([0.0, -0.2, -0.4, -0.6, -0.8, -1.0, 1.0, -0.8, -0.6, -0.4, -0.2, 1.0, 0.8, 0.6, 0.4, 0.2]) },
         { name: "double pulse", volume: 0.4, samples: centerWave([1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, -1.0]) },
         { name: "spiky", volume: 0.4, samples: centerWave([1.0, -1.0, 1.0, -1.0, 1.0, 0.0]) },
-	{ name: "1/3 pulse", volume: 0.5, samples: centerWave([1.0, 1.0, -1.0]) },
     ]);
     Config.chipNoises = toNameMap([
         { name: "retro", volume: 0.25, basePitch: 69, pitchFilterMult: 1024.0, isSoft: false, samples: null },
@@ -108,6 +109,7 @@ var beepbox = (function (exports) {
         { name: "hard fade", isSeamless: false, attackSeconds: 0.0, releases: true, releaseTicks: 48, slides: false, slideTicks: 3 },
         { name: "medium fade", isSeamless: false, attackSeconds: 0.0125, releases: true, releaseTicks: 72, slides: false, slideTicks: 3 },
         { name: "soft fade", isSeamless: false, attackSeconds: 0.06, releases: true, releaseTicks: 96, slides: false, slideTicks: 6 },
+	{ name: "test", isSeamless: true, attackSeconds: 1, releases: false, releaseTicks: 69, slides: false, slideTicks: 20 },
     ]);
     Config.vibratos = toNameMap([
         { name: "none", amplitude: 0.0, periodsSeconds: [0.14], delayParts: 0 },
@@ -139,7 +141,7 @@ var beepbox = (function (exports) {
         { name: "custom interval", harmonizes: true, customInterval: true, arpeggiates: true, isCustomInterval: true, strumParts: 0 },
 	{ name: "die", harmonizes: false, customInterval: false, arpeggiates: true, isCustomInterval: true, strumParts:1}
     ]);
-    Config.maxChordSize = 7;
+    Config.maxChordSize = 16;
     Config.operatorCount = 4;
     Config.algorithms = toNameMap([
         { name: "1←(2 3 4)", carrierCount: 1, associatedCarrier: [1, 1, 1, 1], modulatedBy: [[2, 3, 4], [], [], []] },
@@ -198,6 +200,7 @@ var beepbox = (function (exports) {
         { name: "decay 1", type: 8, speed: 10.0 },
         { name: "decay 2", type: 8, speed: 7.0 },
         { name: "decay 3", type: 8, speed: 4.0 },
+	{ name: "aaaa", type: 6, speed: 10.0 },
     ]);
     Config.feedbacks = toNameMap([
         { name: "1⟲", indices: [[1], [], [], []] },
@@ -908,63 +911,63 @@ var beepbox = (function (exports) {
 					--noise3-primary-note:      #bbd7ff;
 				}
 			`,
-        "light classic": `
+        "dark theme": `
 				:root {
 					-webkit-text-stroke-width: 0.5px;
 					--page-margin: #685d88;
-					--editor-background: white;
+					--editor-background: black;
 					--hover-preview: black;
-					--playhead: rgba(0,0,0,0.5);
+					--playhead: rgba(0,0,0,0);
 					--primary-text: black;
 					--secondary-text: #777;
-					--inverted-text: white;
-					--text-selection: rgba(200,170,255,0.99);
-					--box-selection-fill: rgba(0,0,0,0.1);
+					--inverted-text: black;
+					--text-selection: rgba(0,0,0,0);
+					--box-selection-fill: rgba(0,0,0,0);
 					--loop-accent: #98f;
 					--link-accent: #74f;
-					--ui-widget-background: #ececec;
+					--ui-widget-background: #000000;
 					--ui-widget-focus: #eee;
-					--pitch-background: #ececec;
-					--tonic: #f0d6b6;
-					--fifth-note: #bbddf0;
+					--pitch-background: #000000;
+					--tonic: #000000;
+					--fifth-note: #000000;
 					--white-piano-key: #eee;
 					--black-piano-key: #666;
-					--pitch1-secondary-channel: #6CD9ED;
-					--pitch1-primary-channel:   #00A0BD;
-					--pitch1-secondary-note:    #34C2DC;
-					--pitch1-primary-note:      #00758A;
-					--pitch2-secondary-channel: #E3C941;
-					--pitch2-primary-channel:   #B49700;
-					--pitch2-secondary-note:    #D1B628;
-					--pitch2-primary-note:      #836E00;
-					--pitch3-secondary-channel: #FF9D61;
-					--pitch3-primary-channel:   #E14E00;
-					--pitch3-secondary-note:    #F67D3C;
-					--pitch3-primary-note:      #B64000;
-					--pitch4-secondary-channel: #4BE24B;
-					--pitch4-primary-channel:   #00A800;
-					--pitch4-secondary-note:    #2DC82D;
-					--pitch4-primary-note:      #008000;
-					--pitch5-secondary-channel: #FF90FF;
-					--pitch5-primary-channel:   #E12EDF;
-					--pitch5-secondary-note:    #EC6EEC;
-					--pitch5-primary-note:      #A600A5;
-					--pitch6-secondary-channel: #B5B5FE;
-					--pitch6-primary-channel:   #6969FD;
-					--pitch6-secondary-note:    #9393FE;
-					--pitch6-primary-note:      #4A4AD7;
-					--noise1-secondary-channel: #C1C1C1;
-					--noise1-primary-channel:   #898989;
-					--noise1-secondary-note:    #ADADAD;
-					--noise1-primary-note:      #6C6C6C;
-					--noise2-secondary-channel: #E8BB8C;
-					--noise2-primary-channel:   #BD7D3A;
-					--noise2-secondary-note:    #D1A374;
-					--noise2-primary-note:      #836342;
-					--noise3-secondary-channel: #9BC4EB;
-					--noise3-primary-channel:   #4481BE;
-					--noise3-secondary-note:    #7CA7D3;
-					--noise3-primary-note:      #476685;
+					--pitch1-secondary-channel: #000000;
+					--pitch1-primary-channel:   #000000;
+					--pitch1-secondary-note:    #000000;
+					--pitch1-primary-note:      #000000;
+					--pitch2-secondary-channel: #000000;
+					--pitch2-primary-channel:   #000000;
+					--pitch2-secondary-note:    #000000;
+					--pitch2-primary-note:      #000000;
+					--pitch3-secondary-channel: #000000;
+					--pitch3-primary-channel:   #000000;
+					--pitch3-secondary-note:    #000000;
+					--pitch3-primary-note:      #000000;
+					--pitch4-secondary-channel: #000000;
+					--pitch4-primary-channel:   #000000;
+					--pitch4-secondary-note:    #000000;
+					--pitch4-primary-note:      #000000;
+					--pitch5-secondary-channel: #000000;
+					--pitch5-primary-channel:   #000000;
+					--pitch5-secondary-note:    #000000;
+					--pitch5-primary-note:      #000000;
+					--pitch6-secondary-channel: #000000;
+					--pitch6-primary-channel:   #000000;
+					--pitch6-secondary-note:    #000000;
+					--pitch6-primary-note:      #000000;
+					--noise1-secondary-channel: #000000;
+					--noise1-primary-channel:   #000000;
+					--noise1-secondary-note:    #000000;
+					--noise1-primary-note:      #000000;
+					--noise2-secondary-channel: #000000;
+					--noise2-primary-channel:   #000000;
+					--noise2-secondary-note:    #000000;
+					--noise2-primary-note:      #000000;
+					--noise3-secondary-channel: #000000;
+					--noise3-primary-channel:   #000000;
+					--noise3-secondary-note:    #000000;
+					--noise3-primary-note:      #000000;
 				}
 				
 				.beepboxEditor button, .beepboxEditor select {

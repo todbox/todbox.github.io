@@ -57,8 +57,8 @@ var beepbox = (function (exports) {
     Config.tempoMin = 1;
     Config.tempoMax = 500;
     Config.reverbRange = 4;
-    Config.beatsPerBarMin = 3;
-    Config.beatsPerBarMax = 16;
+    Config.beatsPerBarMin = 1;
+    Config.beatsPerBarMax = 20;
     Config.barCountMin = 1;
     Config.barCountMax = 128;
     Config.instrumentsPerChannelMin = 1;
@@ -84,6 +84,7 @@ var beepbox = (function (exports) {
         { name: "double saw", volume: 0.5, samples: centerWave([0.0, -0.2, -0.4, -0.6, -0.8, -1.0, 1.0, -0.8, -0.6, -0.4, -0.2, 1.0, 0.8, 0.6, 0.4, 0.2]) },
         { name: "double pulse", volume: 0.4, samples: centerWave([1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, -1.0]) },
         { name: "spiky", volume: 0.4, samples: centerWave([1.0, -1.0, 1.0, -1.0, 1.0, 0.0]) },
+	{ name: "1/3 pulse", volume: 0.5, samples: centerWave([1.0, 1.0, -1.0]) },
     ]);
     Config.chipNoises = toNameMap([
         { name: "retro", volume: 0.25, basePitch: 69, pitchFilterMult: 1024.0, isSoft: false, samples: null },
@@ -136,8 +137,9 @@ var beepbox = (function (exports) {
         { name: "strum", harmonizes: true, customInterval: false, arpeggiates: false, isCustomInterval: false, strumParts: 1 },
         { name: "arpeggio", harmonizes: false, customInterval: false, arpeggiates: true, isCustomInterval: false, strumParts: 0 },
         { name: "custom interval", harmonizes: true, customInterval: true, arpeggiates: true, isCustomInterval: true, strumParts: 0 },
+	{ name: "die", harmonizes: false, customInterval: false, arpeggiates: true, isCustomInterval: true, strumParts:1}
     ]);
-    Config.maxChordSize = 4;
+    Config.maxChordSize = 7;
     Config.operatorCount = 4;
     Config.algorithms = toNameMap([
         { name: "1←(2 3 4)", carrierCount: 1, associatedCarrier: [1, 1, 1, 1], modulatedBy: [[2, 3, 4], [], [], []] },
@@ -168,6 +170,7 @@ var beepbox = (function (exports) {
         { name: "7×", mult: 7.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "8×", mult: 8.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "9×", mult: 9.0, hzOffset: 0.0, amplitudeSign: 1.0 },
+	{ name: "10x", mult: 10.0, hzOffset: 0.0, amplitudeSign: 1.0},
         { name: "11×", mult: 11.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "13×", mult: 13.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "16×", mult: 16.0, hzOffset: 0.0, amplitudeSign: 1.0 },

@@ -110,7 +110,7 @@ var beepbox = (function (exports) {
         { name: "hard fade", isSeamless: false, attackSeconds: 0.0, releases: true, releaseTicks: 48, slides: false, slideTicks: 3 },
         { name: "medium fade", isSeamless: false, attackSeconds: 0.0125, releases: true, releaseTicks: 72, slides: false, slideTicks: 3 },
         { name: "soft fade", isSeamless: false, attackSeconds: 0.06, releases: true, releaseTicks: 96, slides: false, slideTicks: 6 },
-	{ name: "test", isSeamless: false, attackSeconds: 1, releases: false, releaseTicks: 69, slides: false, slideTicks: 20 },
+	{ name: "die", isSeamless: false, attackSeconds: 1, releases: false, releaseTicks: 69, slides: false, slideTicks: 20 },
     ]);
     Config.vibratos = toNameMap([
         { name: "none", amplitude: 0.0, periodsSeconds: [0.14], delayParts: 0 },
@@ -140,7 +140,7 @@ var beepbox = (function (exports) {
         { name: "strum", harmonizes: true, customInterval: false, arpeggiates: false, isCustomInterval: false, strumParts: 1 },
         { name: "arpeggio", harmonizes: false, customInterval: false, arpeggiates: true, isCustomInterval: false, strumParts: 0 },
         { name: "custom interval", harmonizes: true, customInterval: true, arpeggiates: true, isCustomInterval: true, strumParts: 0 },
-	{ name: "die", harmonizes: false, customInterval: false, arpeggiates: true, isCustomInterval: true, strumParts:1}
+	{ name: "die", harmonizes: true, customInterval: false, arpeggiates: true, isCustomInterval: true, strumParts:1}
     ]);
     Config.maxChordSize = 16;
     Config.operatorCount = 4;

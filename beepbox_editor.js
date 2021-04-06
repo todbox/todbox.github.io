@@ -914,7 +914,7 @@ var beepbox = (function (exports) {
 					--noise3-primary-note:      #bbd7ff;
 				}
 			`,
-        "dark theme": `
+        "Dark Mode": `
 				:root {
 					-webkit-text-stroke-width: 0.5px;
 					--page-margin: #685d88;

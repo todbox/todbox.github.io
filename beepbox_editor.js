@@ -13881,7 +13881,7 @@ var beepbox = (function (exports) {
                     (this._doc.enableChannelMuting ? "✓ " : "") + "Enable Channel Muting",
                     (this._doc.displayBrowserUrl ? "✓ " : "") + "Display Song Data in URL",
                     (this._doc.fullScreen ? "✓ " : "") + "Full-Screen Layout",
-                    (this._doc.colorTheme == "light classic" ? "✓ " : "") + "Light Theme",
+                    (this._doc.colorTheme == "light classic" ? "✓ " : "") + "Dark Mode",
                 ];
                 for (let i = 0; i < optionCommands.length; i++) {
                     const option = this._optionsMenu.children[i + 1];

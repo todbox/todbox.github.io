@@ -38,7 +38,7 @@ var beepbox = (function (exports) {
         { name: "dbl harmonic :(", realName: "double harmonic minor", flags: [true, false, true, true, false, false, true, true, true, false, false, true] },
         { name: "strange", realName: "whole tone", flags: [true, false, true, false, true, false, true, false, true, false, true, false] },
         { name: "dumb", realName: "dumb", flags: [true, false, false, false, false, true, true, true, true, false, false, true] },
-	{ name: "jacked toad", realName "jacked toad", flags: [true, false, true, true, false, true, true, true, true, false, true, true] },
+	{ name: "jacked toad", realName: "jacked toad", flags: [true, false, true, true, false, true, true, true, true, false, true, true] },
     ]);
     Config.keys = toNameMap([
         { name: "C", isWhiteKey: true, basePitch: 12 },

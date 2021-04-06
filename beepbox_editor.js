@@ -919,13 +919,13 @@ var beepbox = (function (exports) {
 					-webkit-text-stroke-width: 0.5px;
 					--page-margin: #685d88;
 					--editor-background: black;
-					--hover-preview: black;
+					--hover-preview: white;
 					--playhead: rgba(0,0,0,0);
-					--primary-text: black;
+					--primary-text: white;
 					--secondary-text: #777;
 					--inverted-text: black;
 					--text-selection: rgba(0,0,0,0);
-					--box-selection-fill: rgba(0,0,0,0);
+					--box-selection-fill: rgba(255,255,255,0.2);
 					--loop-accent: #98f;
 					--link-accent: #74f;
 					--ui-widget-background: #000000;

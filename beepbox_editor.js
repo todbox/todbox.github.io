@@ -144,7 +144,7 @@ var beepbox = (function (exports) {
         { name: "strum", harmonizes: true, customInterval: false, arpeggiates: false, isCustomInterval: false, strumParts: 1 },
         { name: "arpeggio", harmonizes: false, customInterval: false, arpeggiates: true, isCustomInterval: false, strumParts: 0 },
         { name: "custom interval", harmonizes: true, customInterval: true, arpeggiates: true, isCustomInterval: true, strumParts: 0 },
-	{ name: "die", harmonizes: true, customInterval: false, arpeggiates: true, isCustomInterval: true, strumParts:1}
+	{ name: "die", harmonizes: true, customInterval: false, arpeggiates: true, isCustomInterval: true, strumParts: 1 },
     ]);
     Config.maxChordSize = 16;
     Config.operatorCount = 4;

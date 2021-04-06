@@ -25,6 +25,7 @@ var beepbox = (function (exports) {
     class Config {
     }
     Config.scales = toNameMap([
+        { name: "chromatic", realName: "chromatic", flags: [true, true, true, true, true, true, true, true, true, true, true, true] },
         { name: "easy :)", realName: "pentatonic major", flags: [true, false, true, false, true, false, false, true, false, true, false, false] },
         { name: "easy :(", realName: "pentatonic minor", flags: [true, false, false, true, false, true, false, true, false, false, true, false] },
         { name: "island :)", realName: "ryukyu", flags: [true, false, false, false, true, true, false, true, false, false, false, true] },
@@ -36,8 +37,8 @@ var beepbox = (function (exports) {
         { name: "dbl harmonic :)", realName: "double harmonic major", flags: [true, true, false, false, true, true, false, true, true, false, false, true] },
         { name: "dbl harmonic :(", realName: "double harmonic minor", flags: [true, false, true, true, false, false, true, true, true, false, false, true] },
         { name: "strange", realName: "whole tone", flags: [true, false, true, false, true, false, true, false, true, false, true, false] },
-        { name: "expert", realName: "chromatic", flags: [true, true, true, true, true, true, true, true, true, true, true, true] },
         { name: "dumb", realName: "dumb", flags: [true, false, false, false, false, true, true, true, true, false, false, true] },
+	{ name: "jacked toad", realName "jacked toad", flags: [true, false, true, true, false, true, true, true, true, false, true, true]
     ]);
     Config.keys = toNameMap([
         { name: "C", isWhiteKey: true, basePitch: 12 },
@@ -66,11 +67,13 @@ var beepbox = (function (exports) {
     Config.partsPerBeat = 24;
     Config.ticksPerPart = 2;
     Config.rhythms = toNameMap([
-        { name: "÷3 (triplets)", stepsPerBeat: 3, ticksPerArpeggio: 4, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1]], roundUpThresholds: [5, 12, 18] },
-        { name: "÷4 (standard)", stepsPerBeat: 4, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1]], roundUpThresholds: [3, 9, 17, 21] },
+        { name: "÷2", stepsPerBeat: 2, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1]], roundUpThresholds: null },
+        { name: "÷3", stepsPerBeat: 3, ticksPerArpeggio: 4, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1]], roundUpThresholds: [5, 12, 18] },
+        { name: "÷4", stepsPerBeat: 4, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1]], roundUpThresholds: [3, 9, 17, 21] },
+        { name: "÷5", stepsPerBeat: 5, ticksPerArpeggio: 2.4, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1]], roundUpThresholds: null },
         { name: "÷6", stepsPerBeat: 6, ticksPerArpeggio: 4, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]], roundUpThresholds: null },
         { name: "÷8", stepsPerBeat: 8, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]], roundUpThresholds: null },
-        { name: "freehand", stepsPerBeat: 24, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]], roundUpThresholds: null },
+        { name: "÷24", stepsPerBeat: 24, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]], roundUpThresholds: null },
     ]);
     Config.instrumentTypeNames = ["chip", "FM", "noise", "spectrum", "drumset", "harmonics", "PWM"];
     Config.instrumentTypeHasSpecialInterval = [true, true, false, false, false, true, false];
@@ -110,7 +113,7 @@ var beepbox = (function (exports) {
         { name: "hard fade", isSeamless: false, attackSeconds: 0.0, releases: true, releaseTicks: 48, slides: false, slideTicks: 3 },
         { name: "medium fade", isSeamless: false, attackSeconds: 0.0125, releases: true, releaseTicks: 72, slides: false, slideTicks: 3 },
         { name: "soft fade", isSeamless: false, attackSeconds: 0.06, releases: true, releaseTicks: 96, slides: false, slideTicks: 6 },
-	{ name: "die", isSeamless: false, attackSeconds: 1, releases: false, releaseTicks: 69, slides: false, slideTicks: 20 },
+	{ name: "die", isSeamless: false, attackSeconds: 0.1, releases: false, releaseTicks: 69, slides: false, slideTicks: 6 },
     ]);
     Config.vibratos = toNameMap([
         { name: "none", amplitude: 0.0, periodsSeconds: [0.14], delayParts: 0 },
@@ -118,6 +121,7 @@ var beepbox = (function (exports) {
         { name: "delayed", amplitude: 0.3, periodsSeconds: [0.14], delayParts: 18 },
         { name: "heavy", amplitude: 0.45, periodsSeconds: [0.14], delayParts: 0 },
         { name: "shaky", amplitude: 0.1, periodsSeconds: [0.11, 1.618 * 0.11, 3 * 0.11], delayParts: 0 },
+        { name: "very heavy", amplitude: 1, periodsSeconds: [0.14], delayParts: 0 },
     ]);
     Config.intervals = toNameMap([
         { name: "union", spread: 0.0, offset: 0.0, volume: 0.7, sign: 1.0 },
@@ -403,7 +407,7 @@ var beepbox = (function (exports) {
             return null;
         }
     }
-    EditorConfig.version = "3.0.13";
+    EditorConfig.version = "0.151262345234";
     EditorConfig.versionDisplayName = "TodBox " + EditorConfig.version;
     EditorConfig.presetCategories = toNameMap([
         { name: "Custom Instruments", presets: toNameMap([

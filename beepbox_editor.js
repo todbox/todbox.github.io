@@ -55,7 +55,7 @@ var beepbox = (function (exports) {
         { name: "B", isWhiteKey: true, basePitch: 23 },
     ]);
     Config.blackKeyNameParents = [-1, 1, -1, 1, -1, 1, -1, -1, 1, -1, 1, -1];
-    Config.tempoMin = 1;
+    Config.tempoMin = -500;
     Config.tempoMax = 500;
     Config.reverbRange = 4;
     Config.beatsPerBarMin = 1;

@@ -69,16 +69,18 @@ var beepbox = (function (exports) {
     Config.beatsPerBarMin = 1;
     Config.beatsPerBarMax = 20;
     Config.barCountMin = 1;
-    Config.barCountMax = 128;
+    Config.barCountMax = 256;
     Config.instrumentsPerChannelMin = 1;
     Config.instrumentsPerChannelMax = 10;
-    Config.partsPerBeat = 24;
-    Config.ticksPerPart = 2;
+    Config.partsPerBeat = 840;
+    Config.ticksPerPart = 35;
     Config.rhythms = toNameMap([
         { name: "Quavers (÷2)", stepsPerBeat: 2, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1]], roundUpThresholds: [3, 9] },
         { name: "Triplets (÷3)", stepsPerBeat: 3, ticksPerArpeggio: 4, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1]], roundUpThresholds: [5, 12, 18] },
         { name: "Standard (÷4)", stepsPerBeat: 4, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1]], roundUpThresholds: [3, 9, 17, 21] },
+        { name: "Quintuplits (÷5)", stepsPerBeat: 5, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1]], roundUpThresholds: [3, 9, 17, 21] },
         { name: "Sextuplets (÷6)", stepsPerBeat: 6, ticksPerArpeggio: 4, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]], roundUpThresholds: null },
+        { name: "ill name this later (÷7)", stepsPerBeat: 7, ticksPerArpeggio: 4, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]], roundUpThresholds: null },
         { name: "Demisemiquavers (÷8)", stepsPerBeat: 8, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]], roundUpThresholds: null },
         { name: "Duodectuplets (÷12)", stepsPerBeat: 12, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]], roundUpThresholds: null },
         { name: "Freehand (÷24)", stepsPerBeat: 24, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]], roundUpThresholds: null },

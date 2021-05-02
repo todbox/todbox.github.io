@@ -977,12 +977,12 @@ var beepbox = (function (exports) {
         "Dark Mode": `
 				:root {
 					-webkit-text-stroke-width: 0.5px;
-					--page-margin: #000;
-					--editor-background: 000;
-					--hover-preview: 757575;
+					--page-margin: #0F0003;
+					--editor-background: #000001;
+					--hover-preview: #937575;
 					--playhead: rgba(255, 255, 255, 0.9);
-					--primary-text: #fff;
-					--secondary-text: #acacac;
+					--primary-text: #ECF0F2;
+					--secondary-text: #93ACAC;
 					--inverted-text: #290505;
 					--text-selection: rgba(255, 208, 68, 0.99);
 					--box-selection-fill: #79797970;
@@ -992,7 +992,7 @@ var beepbox = (function (exports) {
 					--ui-widget-focus: #464646;
 					--pitch-background: #222121;
 					--tonic: #1a1818;
-					--fifth-note: #555955;
+					--fifth-note: #615955;
 					--white-piano-key: #a89e9e;
 					--black-piano-key: #2d2424;
 					--pitch1-secondary-channel: #0099a1;

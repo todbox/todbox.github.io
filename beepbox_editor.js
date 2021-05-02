@@ -86,24 +86,21 @@ var beepbox = (function (exports) {
     Config.instrumentTypeNames = ["chip", "FM", "noise", "spectrum", "drumset", "harmonics", "PWM"];
     Config.instrumentTypeHasSpecialInterval = [true, true, false, false, false, true, false];
     Config.chipWaves = toNameMap([
-        { name: "rounded", volume: 0.94, samples: centerAndNormalizeWave([0.0, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.95, 0.9, 0.85, 0.8, 0.7, 0.6, 0.5, 0.4, 0.2, 0.0, -0.2, -0.4, -0.5, -0.6, -0.7, -0.8, -0.85, -0.9, -0.95, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -0.95, -0.9, -0.85, -0.8, -0.7, -0.6, -0.5, -0.4, -0.2]) },
-        { name: "triangle", volume: 1.0, samples: centerAndNormalizeWave([1.0 / 15.0, 3.0 / 15.0, 5.0 / 15.0, 7.0 / 15.0, 9.0 / 15.0, 11.0 / 15.0, 13.0 / 15.0, 15.0 / 15.0, 15.0 / 15.0, 13.0 / 15.0, 11.0 / 15.0, 9.0 / 15.0, 7.0 / 15.0, 5.0 / 15.0, 3.0 / 15.0, 1.0 / 15.0, -1.0 / 15.0, -3.0 / 15.0, -5.0 / 15.0, -7.0 / 15.0, -9.0 / 15.0, -11.0 / 15.0, -13.0 / 15.0, -15.0 / 15.0, -15.0 / 15.0, -13.0 / 15.0, -11.0 / 15.0, -9.0 / 15.0, -7.0 / 15.0, -5.0 / 15.0, -3.0 / 15.0, -1.0 / 15.0]) },
-        { name: "square", volume: 0.5, samples: centerAndNormalizeWave([1.0, -1.0]) },
-	{ name: "1/3 pulse", volume: 0.5, samples: centerAndNormalizeWave([1.0, -1.0, -1.0]) },
-        { name: "1/4 pulse", volume: 0.5, samples: centerAndNormalizeWave([1.0, -1.0, -1.0, -1.0]) },
-	{ name: "1/5 pulse", volume: 0.5, samples: centerAndNormalizeWave([1.0, -1.0, -1.0, -1.0, -1.0]) },
-        { name: "1/8 pulse", volume: 0.5, samples: centerAndNormalizeWave([1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0]) },
-        { name: "sawtooth", volume: 0.65, samples: centerAndNormalizeWave([1.0 / 31.0, 3.0 / 31.0, 5.0 / 31.0, 7.0 / 31.0, 9.0 / 31.0, 11.0 / 31.0, 13.0 / 31.0, 15.0 / 31.0, 17.0 / 31.0, 19.0 / 31.0, 21.0 / 31.0, 23.0 / 31.0, 25.0 / 31.0, 27.0 / 31.0, 29.0 / 31.0, 31.0 / 31.0, -31.0 / 31.0, -29.0 / 31.0, -27.0 / 31.0, -25.0 / 31.0, -23.0 / 31.0, -21.0 / 31.0, -19.0 / 31.0, -17.0 / 31.0, -15.0 / 31.0, -13.0 / 31.0, -11.0 / 31.0, -9.0 / 31.0, -7.0 / 31.0, -5.0 / 31.0, -3.0 / 31.0, -1.0 / 31.0]) },
-        { name: "double saw", volume: 0.5, samples: centerAndNormalizeWave([0.0, -0.2, -0.4, -0.6, -0.8, -1.0, 1.0, -0.8, -0.6, -0.4, -0.2, 1.0, 0.8, 0.6, 0.4, 0.2]) },
-        { name: "double pulse", volume: 0.4, samples: centerAndNormalizeWave([1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, -1.0]) },
-        { name: "spiky", volume: 0.4, samples: centerAndNormalizeWave([1.0, -1.0, 1.0, -1.0, 1.0, 0.0]) },
-        { name: "isolated spiky", volume: 0.4, samples: centerAndNormalizeWave([1.0, -1.0, 1.0, -1.0, 1.0, -1.0]) },
-        { name: "modbox sine", volume: 1.5, samples: centerAndNormalizeWave([0.0, 0.05, 0.125, 0.2, 0.25, 0.3, 0.425, 0.475, 0.525, 0.625, 0.675, 0.725, 0.775, 0.8, 0.825, 0.875, 0.9, 0.925, 0.95, 0.975, 0.98, 0.99, 0.995, 1, 0.995, 0.99, 0.98, 0.975, 0.95, 0.925, 0.9, 0.875, 0.825, 0.8, 0.775, 0.725, 0.675, 0.625, 0.525, 0.475, 0.425, 0.3, 0.25, 0.2, 0.125, 0.05, 0.0, -0.05, -0.125, -0.2, -0.25, -0.3, -0.425, -0.475, -0.525, -0.625, -0.675, -0.725, -0.775, -0.8, -0.825, -0.875, -0.9, -0.925, -0.95, -0.975, -0.98, -0.99, -0.995, -1, -0.995, -0.99, -0.98, -0.975, -0.95, -0.925, -0.9, -0.875, -0.825, -0.8, -0.775, -0.725, -0.675, -0.625, -0.525, -0.475, -0.425, -0.3, -0.25, -0.2, -0.125, -0.05]) },
-        { name: "jummbox sine", volume: 1.0, samples: centerAndNormalizeWave([8.0, 9.0, 11.0, 12.0, 13.0, 14.0, 15.0, 15.0, 15.0, 15.0, 14.0, 14.0, 13.0, 11.0, 10.0, 9.0, 7.0, 6.0, 4.0, 3.0, 2.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 2.0, 4.0, 5.0, 6.0]) },
+        { name: "rounded", volume: 0.94, samples: centerWave([0.0, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.95, 0.9, 0.85, 0.8, 0.7, 0.6, 0.5, 0.4, 0.2, 0.0, -0.2, -0.4, -0.5, -0.6, -0.7, -0.8, -0.85, -0.9, -0.95, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -0.95, -0.9, -0.85, -0.8, -0.7, -0.6, -0.5, -0.4, -0.2]) },
+        { name: "triangle", volume: 1.0, samples: centerWave([1.0 / 15.0, 3.0 / 15.0, 5.0 / 15.0, 7.0 / 15.0, 9.0 / 15.0, 11.0 / 15.0, 13.0 / 15.0, 15.0 / 15.0, 15.0 / 15.0, 13.0 / 15.0, 11.0 / 15.0, 9.0 / 15.0, 7.0 / 15.0, 5.0 / 15.0, 3.0 / 15.0, 1.0 / 15.0, -1.0 / 15.0, -3.0 / 15.0, -5.0 / 15.0, -7.0 / 15.0, -9.0 / 15.0, -11.0 / 15.0, -13.0 / 15.0, -15.0 / 15.0, -15.0 / 15.0, -13.0 / 15.0, -11.0 / 15.0, -9.0 / 15.0, -7.0 / 15.0, -5.0 / 15.0, -3.0 / 15.0, -1.0 / 15.0]) },
+        { name: "square", volume: 0.5, samples: centerWave([1.0, -1.0]) },
+        { name: "1/3 pulse", volume: 0.5, samples: centerWave([1.0, -1.0, -1.0]) },
+        { name: "1/4 pulse", volume: 0.5, samples: centerWave([1.0, -1.0, -1.0, -1.0]) },
+        { name: "1/5 pulse", volume: 0.5, samples: centerWave([1.0, -1.0, -1.0, -1.0, -1.0]) },
+        { name: "1/8 pulse", volume: 0.5, samples: centerWave([1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0]) },
+        { name: "sawtooth", volume: 0.65, samples: centerWave([1.0 / 31.0, 3.0 / 31.0, 5.0 / 31.0, 7.0 / 31.0, 9.0 / 31.0, 11.0 / 31.0, 13.0 / 31.0, 15.0 / 31.0, 17.0 / 31.0, 19.0 / 31.0, 21.0 / 31.0, 23.0 / 31.0, 25.0 / 31.0, 27.0 / 31.0, 29.0 / 31.0, 31.0 / 31.0, -31.0 / 31.0, -29.0 / 31.0, -27.0 / 31.0, -25.0 / 31.0, -23.0 / 31.0, -21.0 / 31.0, -19.0 / 31.0, -17.0 / 31.0, -15.0 / 31.0, -13.0 / 31.0, -11.0 / 31.0, -9.0 / 31.0, -7.0 / 31.0, -5.0 / 31.0, -3.0 / 31.0, -1.0 / 31.0]) },
+        { name: "double saw", volume: 0.5, samples: centerWave([0.0, -0.2, -0.4, -0.6, -0.8, -1.0, 1.0, -0.8, -0.6, -0.4, -0.2, 1.0, 0.8, 0.6, 0.4, 0.2]) },
+        { name: "double pulse", volume: 0.4, samples: centerWave([1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, -1.0]) },
+        { name: "spiky", volume: 0.4, samples: centerWave([1.0, -1.0, 1.0, -1.0, 1.0, 0.0]) },
+	{ name: "glitch", volume: 0.2, samples: centerWave([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0]) },
 	{ name: "pokey square", volume: 0.5, samples: centerAndNormalizeWave([1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0, -1.0]) },
         { name: "pokey bass", volume: 0.5, samples: centerAndNormalizeWave([1.0, -1.0, 1.0, -1.0, 1.0]) },
-        { name: "buzz wave", volume: 0.5, samples: centerAndNormalizeWave([0, 1, 1, 2, 4, 4, 4, 4, 5, 5, 6, 6, 6, 7, 8, 8, 8, 9, 9, 9, 9, 9, 9, 8, 8, 8, 11, 15, 23, 62, 61, 60, 58, 56, 56, 54, 53, 52, 50, 49, 48, 47, 47, 45, 45, 45, 44, 44, 43, 43, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 43, 43, 53]) },
-	{ name: "glitch", volume: 0.2, samples: centerAndNormalizeWave([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0]) },
+        { name: "buzz wave", volume: 0.5, samples: centerAndNormalizeWave([0, 1, 1, 2, 4, 4, 4, 4, 5, 5, 6, 6, 6, 7, 8, 8, 8, 9, 9, 9, 9, 9, 9, 8, 8, 8, 11, 15, 23, 62, 61, 60, 58, 56, 56, 54, 53, 52, 50, 49, 48, 47, 47, 45, 45, 45, 44, 44, 43, 43, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 43, 43, 53]) },         
     ]);
     Config.chipNoises = toNameMap([
         { name: "retro", volume: 0.25, basePitch: 69, pitchFilterMult: 1024.0, isSoft: false, samples: null },
@@ -122,16 +119,14 @@ var beepbox = (function (exports) {
     Config.filterResonanceRange = 8;
     Config.transitions = toNameMap([
         { name: "seamless", isSeamless: true, attackSeconds: 0.0, releases: false, releaseTicks: 1, slides: false, slideTicks: 3 },
-        { name: "soft", isSeamless: false, attackSeconds: 0.025, releases: false, releaseTicks: 3, slides: false, slideTicks: 3 },
-        { name: "medium", isSeamless: false, attackSeconds: 0.0125, releases: false, releaseTicks: 3, slides: false, slideTicks: 3 },
         { name: "hard", isSeamless: false, attackSeconds: 0.0, releases: false, releaseTicks: 3, slides: false, slideTicks: 3 },
+        { name: "soft", isSeamless: false, attackSeconds: 0.025, releases: false, releaseTicks: 3, slides: false, slideTicks: 3 },
         { name: "slide", isSeamless: true, attackSeconds: 0.025, releases: false, releaseTicks: 3, slides: true, slideTicks: 3 },
-        { name: "seamless fade (cross fade)", isSeamless: false, attackSeconds: 0.04, releases: true, releaseTicks: 6, slides: false, slideTicks: 3 },
-        { name: "soft fade", isSeamless: false, attackSeconds: 0.06, releases: true, releaseTicks: 96, slides: false, slideTicks: 6 },
-        { name: "medium fade", isSeamless: false, attackSeconds: 0.0125, releases: true, releaseTicks: 72, slides: false, slideTicks: 3 },
+        { name: "cross fade", isSeamless: false, attackSeconds: 0.04, releases: true, releaseTicks: 6, slides: false, slideTicks: 3 },
         { name: "hard fade", isSeamless: false, attackSeconds: 0.0, releases: true, releaseTicks: 48, slides: false, slideTicks: 3 },
-        { name: "slide fade", isSeamless: true, attackSeconds: 0.025, releases: true, releaseTicks: 96, slides: true, slideTicks: 6 },
-	{ name: "die (change soon)", isSeamless: false, attackSeconds: 0.1, releases: false, releaseTicks: 69, slides: false, slideTicks: 6 },
+        { name: "medium fade", isSeamless: false, attackSeconds: 0.0125, releases: true, releaseTicks: 72, slides: false, slideTicks: 3 },
+        { name: "soft fade", isSeamless: false, attackSeconds: 0.06, releases: true, releaseTicks: 96, slides: false, slideTicks: 6 },
+	{ name: "slide fade", isSeamless: true, attackSeconds: 0.025, releases: true, releaseTicks: 96, slides: true, slideTicks: 6 },
     ]);
     Config.vibratos = toNameMap([
         { name: "none", amplitude: 0.0, periodsSeconds: [0.14], delayParts: 0 },
@@ -143,19 +138,17 @@ var beepbox = (function (exports) {
     ]);
     Config.intervals = toNameMap([
         { name: "union", spread: 0.0, offset: 0.0, volume: 0.7, sign: 1.0 },
-        { name: "octave", spread: 6.0, offset: 6.0, volume: 0.8, sign: 1.0 },
         { name: "shimmer", spread: 0.018, offset: 0.0, volume: 0.8, sign: 1.0 },
         { name: "hum", spread: 0.045, offset: 0.0, volume: 1.0, sign: 1.0 },
-        { name: "dissonant hum (dissonant)", spread: 0.25, offset: 0.0, volume: 0.9, sign: 1.0 },
-        { name: "piano", spread: 0.01, offset: 0.0, volume: 1.0, sign: 0.7 },
-        { name: "bowed", spread: 0.02, offset: 0.0, volume: 1.0, sign: -1.0 },
         { name: "honky tonk", spread: 0.09, offset: 0.0, volume: 1.0, sign: 1.0 },
+        { name: "dissonant", spread: 0.25, offset: 0.0, volume: 0.9, sign: 1.0 },
         { name: "fifth", spread: 3.5, offset: 3.5, volume: 0.9, sign: 1.0 },
-        { name: "fourth", spread: 4, offset: 4, volume: 0.9, sign: 1.0 },
+        { name: "octave", spread: 6.0, offset: 6.0, volume: 0.8, sign: 1.0 },
+        { name: "bowed", spread: 0.02, offset: 0.0, volume: 1.0, sign: -1.0 },
+        { name: "piano", spread: 0.01, offset: 0.0, volume: 1.0, sign: 0.7 },
         { name: "error", spread: 9.5, offset: 0.0, volume: 1.0, sign: 1.3 },          
-        { name: "rising", spread: 1.0, offset: 0.7, volume: 0.95, sign: 1.0 },
-        { name: "treble", spread: 0.0, offset: 7, volume: 0.7, sign: 1.0 },
         { name: "bass", spread: 0.0, offset: -7, volume: 0.7, sign: 1.0 },   
+        { name: "treble", spread: 0.0, offset: 7, volume: 0.7, sign: 1.0 },
     ]);
     Config.effectsNames = ["none", "reverb", "chorus", "chorus & reverb"];
     Config.volumeRange = 8;
@@ -167,7 +160,6 @@ var beepbox = (function (exports) {
         { name: "strum", harmonizes: true, customInterval: false, arpeggiates: false, isCustomInterval: false, strumParts: 1 },
         { name: "arpeggio", harmonizes: false, customInterval: false, arpeggiates: true, isCustomInterval: false, strumParts: 0 },
         { name: "custom interval", harmonizes: true, customInterval: true, arpeggiates: true, isCustomInterval: true, strumParts: 0 },
-	{ name: "die (change soon)", harmonizes: true, customInterval: false, arpeggiates: true, isCustomInterval: true, strumParts: 1 },
     ]);
     Config.maxChordSize = 16;
     Config.operatorCount = 4;

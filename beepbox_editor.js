@@ -189,9 +189,6 @@ var beepbox = (function (exports) {
     Config.operatorCarrierInterval = [0.0, 0.04, -0.073, 0.091];
     Config.operatorAmplitudeMax = 15;
     Config.operatorFrequencies = toNameMap([
-         { name: "0.25×", mult: 0.25, hzOffset: 0.0, amplitudeSign: 1.0 },
-        { name: "0.5×", mult: 0.5, hzOffset: 0.0, amplitudeSign: 1.0 },
-        { name: "0.75×", mult: 0.75, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "1×", mult: 1.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "~1×", mult: 1.0, hzOffset: 1.5, amplitudeSign: -1.0 },
         { name: "2×", mult: 2.0, hzOffset: 0.0, amplitudeSign: 1.0 },

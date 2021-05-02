@@ -1,5 +1,5 @@
 # Todbox
-Todbox is a mod of Beepbox.co made by Just a Toad, in collaboration with Main Character of The Problem#3012.
+Todbox is a mod of Beepbox.co made by Just a Toad, in collaboration with Main Character of The Problem.
 
 
 ## Release Notes

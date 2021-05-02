@@ -3354,7 +3354,7 @@ var beepbox = (function (exports) {
             this.beatsPerBar = 4;
             this.barCount = 16;
             this.patternsPerChannel = 12;
-            this.rhythm = 1;
+            this.rhythm = 2;
             this.instrumentsPerChannel = 1;
             if (andResetChannels) {
                 this.pitchChannelCount = 3;

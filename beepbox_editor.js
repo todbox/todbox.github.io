@@ -25,20 +25,27 @@ var beepbox = (function (exports) {
     class Config {
     }
     Config.scales = toNameMap([
-        { name: "chromatic", realName: "chromatic", flags: [true, true, true, true, true, true, true, true, true, true, true, true] },
-        { name: "easy :)", realName: "pentatonic major", flags: [true, false, true, false, true, false, false, true, false, true, false, false] },
-        { name: "easy :(", realName: "pentatonic minor", flags: [true, false, false, true, false, true, false, true, false, false, true, false] },
-        { name: "island :)", realName: "ryukyu", flags: [true, false, false, false, true, true, false, true, false, false, false, true] },
-        { name: "island :(", realName: "pelog selisir", flags: [true, true, false, true, false, false, false, true, true, false, false, false] },
-        { name: "blues :)", realName: "blues major", flags: [true, false, true, true, true, false, false, true, false, true, false, false] },
-        { name: "blues :(", realName: "blues", flags: [true, false, false, true, false, true, true, true, false, false, true, false] },
-        { name: "normal :)", realName: "ionian", flags: [true, false, true, false, true, true, false, true, false, true, false, true] },
-        { name: "normal :(", realName: "aeolian", flags: [true, false, true, true, false, true, false, true, true, false, true, false] },
-        { name: "dbl harmonic :)", realName: "double harmonic major", flags: [true, true, false, false, true, true, false, true, true, false, false, true] },
-        { name: "dbl harmonic :(", realName: "double harmonic minor", flags: [true, false, true, true, false, false, true, true, true, false, false, true] },
-        { name: "strange", realName: "whole tone", flags: [true, false, true, false, true, false, true, false, true, false, true, false] },
-        { name: "dumb", realName: "dumb", flags: [true, false, false, false, false, true, true, true, true, false, false, true] },
-	{ name: "jacked toad", realName: "jacked toad", flags: [true, false, true, true, false, true, true, true, true, false, true, true] },
+        { name: "Chromatic (Free)", realName: "chromatic", flags: [true, true, true, true, true, true, true, true, true, true, true, true] },
+        { name: "Major", realName: "Perphaps one of the most used scales in existance.", flags: [true, false, true, false, true, true, false, true, false, true, false, true] },
+        { name: "Minor", realName: "Perphaps one of the most used scales in existance.", flags: [true, false, true, true, false, true, false, true, true, false, true, false] },
+        { name: "Pentatonic Major", realName: "Very frequently used. Not much else to say.", flags: [true, false, true, false, true, false, false, true, false, true, false, false] },
+        { name: "Pentatonic Minor", realName: "Very frequently used. Not much else to say.", flags: [true, false, false, true, false, true, false, true, false, false, true, false] },
+        { name: "Altered Pentatonic", realName: "test", flags: [true, false, false, true, true, false, false, true, false, false, true, false] },
+        { name: "Blues Major", realName: "The major version of the Blues scale.", flags: [true, false, true, true, true, false, false, true, false, true, false, false] },
+        { name: "Blues Minor", realName: "The minor version of the Blues scale..", flags: [true, false, false, true, false, true, true, true, false, false, true, false] },
+        { name: "Double Harmonic Major", realName: "Commonly used in Romani music.", flags: [true, true, false, false, true, true, false, true, true, false, false, true] },
+        { name: "Double Harmonic Minor", realName: "Commonly used in Romani music.", flags: [true, false, true, true, false, false, true, true, true, false, false, true] },
+        { name: "Ryukyu", realName: "Means 'beautiful' in Japanese, and that name is accurate.", flags: [true, false, false, false, true, true, false, true, false, false, false, true] },
+        { name: "Pelog Selisir", realName: "dunno", flags: [true, true, false, true, false, false, false, true, true, false, false, false] },
+        { name: "Lydian", realName: "dunno", flags: [true, false, true, false, true, false, true, true, false, true, false, true] },
+        { name: "Locrian", realName: "dunno", flags: [true, true, false, true, false, true, true, false, true, false, true, false] },
+        { name: "Phrygian", realName: "dunno", flags: [true, true, false, true, false, true, false, true, true, false, true, false] },
+        { name: "Dorian", realName: "dunno", flags: [true, false, true, true, false, true, false, true, false, true, true, false] },
+        { name: "Jacked Toad", realName: "jacked toad", flags: [true, false, true, true, false, true, true, true, true, false, true, true] },
+        { name: "Whole Tone", realName: "Is built entirely of tritones. Only use if you know what you're doing!", flags: [true, false, true, false, true, false, true, false, true, false, true, false] },
+        { name: "Rythmic", realName: "Pretty straightforward.", flags: [true, false, false, false, false, false, false, false, false, false, false, false] },
+        { name: "Custom Scale...", realName: "...", flags: [true, false, true, true, false, true, true, true, true, true, true, false] },
+        { name: "Dumb (change soon)", realName: "dumb", flags: [true, false, false, false, false, true, true, true, true, false, false, true] },
     ]);
     Config.keys = toNameMap([
         { name: "C", isWhiteKey: true, basePitch: 12 },
@@ -46,13 +53,14 @@ var beepbox = (function (exports) {
         { name: "D", isWhiteKey: true, basePitch: 14 },
         { name: "D♯", isWhiteKey: false, basePitch: 15 },
         { name: "E", isWhiteKey: true, basePitch: 16 },
-        { name: "F", isWhiteKey: true, basePitch: 17 },
+        { name: "F / E♯", isWhiteKey: true, basePitch: 17 },
         { name: "F♯", isWhiteKey: false, basePitch: 18 },
         { name: "G", isWhiteKey: true, basePitch: 19 },
         { name: "G♯", isWhiteKey: false, basePitch: 20 },
         { name: "A", isWhiteKey: true, basePitch: 21 },
         { name: "A♯", isWhiteKey: false, basePitch: 22 },
         { name: "B", isWhiteKey: true, basePitch: 23 },
+        { name: "B♯ / C2", isWhiteKey: false, basePitch: 24 },
     ]);
     Config.blackKeyNameParents = [-1, 1, -1, 1, -1, 1, -1, -1, 1, -1, 1, -1];
     Config.tempoMin = -500;
@@ -67,27 +75,35 @@ var beepbox = (function (exports) {
     Config.partsPerBeat = 24;
     Config.ticksPerPart = 2;
     Config.rhythms = toNameMap([
-        { name: "÷3", stepsPerBeat: 3, ticksPerArpeggio: 4, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1]], roundUpThresholds: [5, 12, 18] },
-        { name: "÷4", stepsPerBeat: 4, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1]], roundUpThresholds: [3, 9, 17, 21] },
-        { name: "÷6", stepsPerBeat: 6, ticksPerArpeggio: 4, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]], roundUpThresholds: null },
-        { name: "÷8", stepsPerBeat: 8, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]], roundUpThresholds: null },
-        { name: "÷24", stepsPerBeat: 24, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]], roundUpThresholds: null },
+        { name: "Quavers (÷2)", stepsPerBeat: 2, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1]], roundUpThresholds: [3, 9] },
+        { name: "Triplets (÷3)", stepsPerBeat: 3, ticksPerArpeggio: 4, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1]], roundUpThresholds: [5, 12, 18] },
+        { name: "Standard (÷4)", stepsPerBeat: 4, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1]], roundUpThresholds: [3, 9, 17, 21] },
+        { name: "Sextuplets (÷6)", stepsPerBeat: 6, ticksPerArpeggio: 4, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]], roundUpThresholds: null },
+        { name: "Demisemiquavers (÷8)", stepsPerBeat: 8, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]], roundUpThresholds: null },
+        { name: "Duodectuplets (÷12)", stepsPerBeat: 12, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]], roundUpThresholds: null },
+        { name: "Freehand (÷24)", stepsPerBeat: 24, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]], roundUpThresholds: null },
     ]);
     Config.instrumentTypeNames = ["chip", "FM", "noise", "spectrum", "drumset", "harmonics", "PWM"];
     Config.instrumentTypeHasSpecialInterval = [true, true, false, false, false, true, false];
     Config.chipWaves = toNameMap([
-        { name: "rounded", volume: 0.94, samples: centerWave([0.0, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.95, 0.9, 0.85, 0.8, 0.7, 0.6, 0.5, 0.4, 0.2, 0.0, -0.2, -0.4, -0.5, -0.6, -0.7, -0.8, -0.85, -0.9, -0.95, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -0.95, -0.9, -0.85, -0.8, -0.7, -0.6, -0.5, -0.4, -0.2]) },
-        { name: "triangle", volume: 1.0, samples: centerWave([1.0 / 15.0, 3.0 / 15.0, 5.0 / 15.0, 7.0 / 15.0, 9.0 / 15.0, 11.0 / 15.0, 13.0 / 15.0, 15.0 / 15.0, 15.0 / 15.0, 13.0 / 15.0, 11.0 / 15.0, 9.0 / 15.0, 7.0 / 15.0, 5.0 / 15.0, 3.0 / 15.0, 1.0 / 15.0, -1.0 / 15.0, -3.0 / 15.0, -5.0 / 15.0, -7.0 / 15.0, -9.0 / 15.0, -11.0 / 15.0, -13.0 / 15.0, -15.0 / 15.0, -15.0 / 15.0, -13.0 / 15.0, -11.0 / 15.0, -9.0 / 15.0, -7.0 / 15.0, -5.0 / 15.0, -3.0 / 15.0, -1.0 / 15.0]) },
-        { name: "square", volume: 0.5, samples: centerWave([1.0, -1.0]) },
-	{ name: "1/3 pulse", volume: 0.5, samples: centerWave([1.0, -1.0, -1.0]) },
-        { name: "1/4 pulse", volume: 0.5, samples: centerWave([1.0, -1.0, -1.0, -1.0]) },
-	{ name: "1/5 pulse", volume: 0.5, samples: centerWave([1.0, -1.0, -1.0, -1.0, -1.0]) },
-        { name: "1/8 pulse", volume: 0.5, samples: centerWave([1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0]) },
-        { name: "sawtooth", volume: 0.65, samples: centerWave([1.0 / 31.0, 3.0 / 31.0, 5.0 / 31.0, 7.0 / 31.0, 9.0 / 31.0, 11.0 / 31.0, 13.0 / 31.0, 15.0 / 31.0, 17.0 / 31.0, 19.0 / 31.0, 21.0 / 31.0, 23.0 / 31.0, 25.0 / 31.0, 27.0 / 31.0, 29.0 / 31.0, 31.0 / 31.0, -31.0 / 31.0, -29.0 / 31.0, -27.0 / 31.0, -25.0 / 31.0, -23.0 / 31.0, -21.0 / 31.0, -19.0 / 31.0, -17.0 / 31.0, -15.0 / 31.0, -13.0 / 31.0, -11.0 / 31.0, -9.0 / 31.0, -7.0 / 31.0, -5.0 / 31.0, -3.0 / 31.0, -1.0 / 31.0]) },
-        { name: "double saw", volume: 0.5, samples: centerWave([0.0, -0.2, -0.4, -0.6, -0.8, -1.0, 1.0, -0.8, -0.6, -0.4, -0.2, 1.0, 0.8, 0.6, 0.4, 0.2]) },
-        { name: "double pulse", volume: 0.4, samples: centerWave([1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, -1.0]) },
-        { name: "spiky", volume: 0.4, samples: centerWave([1.0, -1.0, 1.0, -1.0, 1.0, 0.0]) },
-	{ name: "glitch", volume: 0.2, samples: centerWave([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0]) },
+        { name: "rounded", volume: 0.94, samples: centerAndNormalizeWave([0.0, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.95, 0.9, 0.85, 0.8, 0.7, 0.6, 0.5, 0.4, 0.2, 0.0, -0.2, -0.4, -0.5, -0.6, -0.7, -0.8, -0.85, -0.9, -0.95, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -0.95, -0.9, -0.85, -0.8, -0.7, -0.6, -0.5, -0.4, -0.2]) },
+        { name: "triangle", volume: 1.0, samples: centerAndNormalizeWave([1.0 / 15.0, 3.0 / 15.0, 5.0 / 15.0, 7.0 / 15.0, 9.0 / 15.0, 11.0 / 15.0, 13.0 / 15.0, 15.0 / 15.0, 15.0 / 15.0, 13.0 / 15.0, 11.0 / 15.0, 9.0 / 15.0, 7.0 / 15.0, 5.0 / 15.0, 3.0 / 15.0, 1.0 / 15.0, -1.0 / 15.0, -3.0 / 15.0, -5.0 / 15.0, -7.0 / 15.0, -9.0 / 15.0, -11.0 / 15.0, -13.0 / 15.0, -15.0 / 15.0, -15.0 / 15.0, -13.0 / 15.0, -11.0 / 15.0, -9.0 / 15.0, -7.0 / 15.0, -5.0 / 15.0, -3.0 / 15.0, -1.0 / 15.0]) },
+        { name: "square", volume: 0.5, samples: centerAndNormalizeWave([1.0, -1.0]) },
+	{ name: "1/3 pulse", volume: 0.5, samples: centerAndNormalizeWave([1.0, -1.0, -1.0]) },
+        { name: "1/4 pulse", volume: 0.5, samples: centerAndNormalizeWave([1.0, -1.0, -1.0, -1.0]) },
+	{ name: "1/5 pulse", volume: 0.5, samples: centerAndNormalizeWave([1.0, -1.0, -1.0, -1.0, -1.0]) },
+        { name: "1/8 pulse", volume: 0.5, samples: centerAndNormalizeWave([1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0]) },
+        { name: "sawtooth", volume: 0.65, samples: centerAndNormalizeWave([1.0 / 31.0, 3.0 / 31.0, 5.0 / 31.0, 7.0 / 31.0, 9.0 / 31.0, 11.0 / 31.0, 13.0 / 31.0, 15.0 / 31.0, 17.0 / 31.0, 19.0 / 31.0, 21.0 / 31.0, 23.0 / 31.0, 25.0 / 31.0, 27.0 / 31.0, 29.0 / 31.0, 31.0 / 31.0, -31.0 / 31.0, -29.0 / 31.0, -27.0 / 31.0, -25.0 / 31.0, -23.0 / 31.0, -21.0 / 31.0, -19.0 / 31.0, -17.0 / 31.0, -15.0 / 31.0, -13.0 / 31.0, -11.0 / 31.0, -9.0 / 31.0, -7.0 / 31.0, -5.0 / 31.0, -3.0 / 31.0, -1.0 / 31.0]) },
+        { name: "double saw", volume: 0.5, samples: centerAndNormalizeWave([0.0, -0.2, -0.4, -0.6, -0.8, -1.0, 1.0, -0.8, -0.6, -0.4, -0.2, 1.0, 0.8, 0.6, 0.4, 0.2]) },
+        { name: "double pulse", volume: 0.4, samples: centerAndNormalizeWave([1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, -1.0]) },
+        { name: "spiky", volume: 0.4, samples: centerAndNormalizeWave([1.0, -1.0, 1.0, -1.0, 1.0, 0.0]) },
+        { name: "isolated spiky", volume: 0.4, samples: centerAndNormalizeWave([1.0, -1.0, 1.0, -1.0, 1.0, -1.0]) },
+        { name: "modbox sine", volume: 1.5, samples: centerAndNormalizeWave([0.0, 0.05, 0.125, 0.2, 0.25, 0.3, 0.425, 0.475, 0.525, 0.625, 0.675, 0.725, 0.775, 0.8, 0.825, 0.875, 0.9, 0.925, 0.95, 0.975, 0.98, 0.99, 0.995, 1, 0.995, 0.99, 0.98, 0.975, 0.95, 0.925, 0.9, 0.875, 0.825, 0.8, 0.775, 0.725, 0.675, 0.625, 0.525, 0.475, 0.425, 0.3, 0.25, 0.2, 0.125, 0.05, 0.0, -0.05, -0.125, -0.2, -0.25, -0.3, -0.425, -0.475, -0.525, -0.625, -0.675, -0.725, -0.775, -0.8, -0.825, -0.875, -0.9, -0.925, -0.95, -0.975, -0.98, -0.99, -0.995, -1, -0.995, -0.99, -0.98, -0.975, -0.95, -0.925, -0.9, -0.875, -0.825, -0.8, -0.775, -0.725, -0.675, -0.625, -0.525, -0.475, -0.425, -0.3, -0.25, -0.2, -0.125, -0.05]) },
+        { name: "jummbox sine", volume: 1.0, samples: centerAndNormalizeWave([8.0, 9.0, 11.0, 12.0, 13.0, 14.0, 15.0, 15.0, 15.0, 15.0, 14.0, 14.0, 13.0, 11.0, 10.0, 9.0, 7.0, 6.0, 4.0, 3.0, 2.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 2.0, 4.0, 5.0, 6.0]) },
+	{ name: "pokey square", volume: 0.5, samples: centerAndNormalizeWave([1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0, -1.0]) },
+        { name: "pokey bass", volume: 0.5, samples: centerAndNormalizeWave([1.0, -1.0, 1.0, -1.0, 1.0]) },
+        { name: "buzz wave", volume: 0.5, samples: centerAndNormalizeWave([0, 1, 1, 2, 4, 4, 4, 4, 5, 5, 6, 6, 6, 7, 8, 8, 8, 9, 9, 9, 9, 9, 9, 8, 8, 8, 11, 15, 23, 62, 61, 60, 58, 56, 56, 54, 53, 52, 50, 49, 48, 47, 47, 45, 45, 45, 44, 44, 43, 43, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 43, 43, 53]) },
+	{ name: "glitch", volume: 0.2, samples: centerAndNormalizeWave([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0]) },
     ]);
     Config.chipNoises = toNameMap([
         { name: "retro", volume: 0.25, basePitch: 69, pitchFilterMult: 1024.0, isSoft: false, samples: null },
@@ -95,6 +111,8 @@ var beepbox = (function (exports) {
         { name: "clang", volume: 0.4, basePitch: 69, pitchFilterMult: 1024.0, isSoft: false, samples: null },
         { name: "buzz", volume: 0.3, basePitch: 69, pitchFilterMult: 1024.0, isSoft: false, samples: null },
         { name: "hollow", volume: 1.5, basePitch: 96, pitchFilterMult: 1.0, isSoft: true, samples: null },
+        { name: "metallic", volume: 1.5, basePitch: 96, pitchFilterMult: 1024.0, isSoft: false, samples: null },
+        { name: "cutter", volume: 0.05, basePitch: 96, pitchFilterMult: 1024.0, isSoft: false, samples: null },
     ]);
     Config.filterCutoffMaxHz = 8000;
     Config.filterCutoffMinHz = 1;
@@ -104,14 +122,16 @@ var beepbox = (function (exports) {
     Config.filterResonanceRange = 8;
     Config.transitions = toNameMap([
         { name: "seamless", isSeamless: true, attackSeconds: 0.0, releases: false, releaseTicks: 1, slides: false, slideTicks: 3 },
-        { name: "hard", isSeamless: false, attackSeconds: 0.0, releases: false, releaseTicks: 3, slides: false, slideTicks: 3 },
         { name: "soft", isSeamless: false, attackSeconds: 0.025, releases: false, releaseTicks: 3, slides: false, slideTicks: 3 },
+        { name: "medium", isSeamless: false, attackSeconds: 0.0125, releases: false, releaseTicks: 3, slides: false, slideTicks: 3 },
+        { name: "hard", isSeamless: false, attackSeconds: 0.0, releases: false, releaseTicks: 3, slides: false, slideTicks: 3 },
         { name: "slide", isSeamless: true, attackSeconds: 0.025, releases: false, releaseTicks: 3, slides: true, slideTicks: 3 },
-        { name: "cross fade", isSeamless: false, attackSeconds: 0.04, releases: true, releaseTicks: 6, slides: false, slideTicks: 3 },
-        { name: "hard fade", isSeamless: false, attackSeconds: 0.0, releases: true, releaseTicks: 48, slides: false, slideTicks: 3 },
-        { name: "medium fade", isSeamless: false, attackSeconds: 0.0125, releases: true, releaseTicks: 72, slides: false, slideTicks: 3 },
+        { name: "seamless fade (cross fade)", isSeamless: false, attackSeconds: 0.04, releases: true, releaseTicks: 6, slides: false, slideTicks: 3 },
         { name: "soft fade", isSeamless: false, attackSeconds: 0.06, releases: true, releaseTicks: 96, slides: false, slideTicks: 6 },
-	{ name: "die", isSeamless: false, attackSeconds: 0.1, releases: false, releaseTicks: 69, slides: false, slideTicks: 6 },
+        { name: "medium fade", isSeamless: false, attackSeconds: 0.0125, releases: true, releaseTicks: 72, slides: false, slideTicks: 3 },
+        { name: "hard fade", isSeamless: false, attackSeconds: 0.0, releases: true, releaseTicks: 48, slides: false, slideTicks: 3 },
+        { name: "slide fade", isSeamless: true, attackSeconds: 0.025, releases: true, releaseTicks: 96, slides: true, slideTicks: 6 },
+	{ name: "die (change soon)", isSeamless: false, attackSeconds: 0.1, releases: false, releaseTicks: 69, slides: false, slideTicks: 6 },
     ]);
     Config.vibratos = toNameMap([
         { name: "none", amplitude: 0.0, periodsSeconds: [0.14], delayParts: 0 },
@@ -123,14 +143,19 @@ var beepbox = (function (exports) {
     ]);
     Config.intervals = toNameMap([
         { name: "union", spread: 0.0, offset: 0.0, volume: 0.7, sign: 1.0 },
+        { name: "octave", spread: 6.0, offset: 6.0, volume: 0.8, sign: 1.0 },
         { name: "shimmer", spread: 0.018, offset: 0.0, volume: 0.8, sign: 1.0 },
         { name: "hum", spread: 0.045, offset: 0.0, volume: 1.0, sign: 1.0 },
-        { name: "honky tonk", spread: 0.09, offset: 0.0, volume: 1.0, sign: 1.0 },
-        { name: "dissonant", spread: 0.25, offset: 0.0, volume: 0.9, sign: 1.0 },
-        { name: "fifth", spread: 3.5, offset: 3.5, volume: 0.9, sign: 1.0 },
-        { name: "octave", spread: 6.0, offset: 6.0, volume: 0.8, sign: 1.0 },
-        { name: "bowed", spread: 0.02, offset: 0.0, volume: 1.0, sign: -1.0 },
+        { name: "dissonant hum (dissonant)", spread: 0.25, offset: 0.0, volume: 0.9, sign: 1.0 },
         { name: "piano", spread: 0.01, offset: 0.0, volume: 1.0, sign: 0.7 },
+        { name: "bowed", spread: 0.02, offset: 0.0, volume: 1.0, sign: -1.0 },
+        { name: "honky tonk", spread: 0.09, offset: 0.0, volume: 1.0, sign: 1.0 },
+        { name: "fifth", spread: 3.5, offset: 3.5, volume: 0.9, sign: 1.0 },
+        { name: "fourth", spread: 4, offset: 4, volume: 0.9, sign: 1.0 },
+        { name: "error", spread: 9.5, offset: 0.0, volume: 1.0, sign: 1.3 },          
+        { name: "rising", spread: 1.0, offset: 0.7, volume: 0.95, sign: 1.0 },
+        { name: "treble", spread: 0.0, offset: 7, volume: 0.7, sign: 1.0 },
+        { name: "bass", spread: 0.0, offset: -7, volume: 0.7, sign: 1.0 },   
     ]);
     Config.effectsNames = ["none", "reverb", "chorus", "chorus & reverb"];
     Config.volumeRange = 8;
@@ -142,7 +167,7 @@ var beepbox = (function (exports) {
         { name: "strum", harmonizes: true, customInterval: false, arpeggiates: false, isCustomInterval: false, strumParts: 1 },
         { name: "arpeggio", harmonizes: false, customInterval: false, arpeggiates: true, isCustomInterval: false, strumParts: 0 },
         { name: "custom interval", harmonizes: true, customInterval: true, arpeggiates: true, isCustomInterval: true, strumParts: 0 },
-	{ name: "die", harmonizes: true, customInterval: false, arpeggiates: true, isCustomInterval: true, strumParts: 1 },
+	{ name: "die (change soon)", harmonizes: true, customInterval: false, arpeggiates: true, isCustomInterval: true, strumParts: 1 },
     ]);
     Config.maxChordSize = 16;
     Config.operatorCount = 4;
@@ -164,6 +189,9 @@ var beepbox = (function (exports) {
     Config.operatorCarrierInterval = [0.0, 0.04, -0.073, 0.091];
     Config.operatorAmplitudeMax = 15;
     Config.operatorFrequencies = toNameMap([
+         { name: "0.25×", mult: 0.25, hzOffset: 0.0, amplitudeSign: 1.0 },
+        { name: "0.5×", mult: 0.5, hzOffset: 0.0, amplitudeSign: 1.0 },
+        { name: "0.75×", mult: 0.75, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "1×", mult: 1.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "~1×", mult: 1.0, hzOffset: 1.5, amplitudeSign: -1.0 },
         { name: "2×", mult: 2.0, hzOffset: 0.0, amplitudeSign: 1.0 },
@@ -203,7 +231,9 @@ var beepbox = (function (exports) {
         { name: "decay 1", type: 8, speed: 10.0 },
         { name: "decay 2", type: 8, speed: 7.0 },
         { name: "decay 3", type: 8, speed: 4.0 },
-	{ name: "aaaa", type: 6, speed: 10.0 },
+	{ name: "flutter 1", type: 6, speed: 14.0 },
+        { name: "flutter 2", type: 7, speed: 11.0 },
+        { name: "water-y flutter", type: 6, speed: 9.0 },
     ]);
     Config.feedbacks = toNameMap([
         { name: "1⟲", indices: [[1], [], [], []] },
@@ -269,6 +299,25 @@ var beepbox = (function (exports) {
         wave.push(0);
         return new Float64Array(wave);
     }
+  function centerAndNormalizeWave(wave) {
+        let sum = 0.0;
+        let magn = 0.0;
+        for (let i = 0; i < wave.length; i++) {
+            sum += wave[i];
+            magn += Math.abs(wave[i]);
+        }
+        const average = sum / wave.length;
+        const magnAvg = magn / wave.length;
+        let cumulative = 0;
+        let wavePrev = 0;
+        for (let i = 0; i < wave.length; i++) {
+            cumulative += wavePrev;
+            wavePrev = (wave[i] - average) / (magnAvg);
+            wave[i] = cumulative;
+        }
+        wave.push(0);
+        return new Float64Array(wave);
+    }
     function getDrumWave(index, inverseRealFourierTransform = null, scaleElementsByFactor = null) {
         let wave = Config.chipNoises[index].samples;
         if (wave == null) {
@@ -317,6 +366,28 @@ var beepbox = (function (exports) {
                 drawNoiseSpectrum(wave, 11, 14, .6578, .6578, 0);
                 inverseRealFourierTransform(wave, Config.chipNoiseLength);
                 scaleElementsByFactor(wave, 1.0 / Math.sqrt(Config.chipNoiseLength));
+            }
+           else if (index == 5) {
+                var drumBuffer = 1;
+                for (var i = 0; i < 32768; i++) {
+                    wave[i] = (drumBuffer & 1) / 2.0 + 0.5;
+                    var newBuffer = drumBuffer >> 1;
+                    if (((drumBuffer + newBuffer) & 1) == 1) {
+                        newBuffer -= 10 << 2;
+                    }
+                    drumBuffer = newBuffer;
+                }
+            }
+            else if (index == 6) {
+                var drumBuffer = 1;
+                for (var i = 0; i < Config.chipNoiseLength; i++) {
+                    wave[i] = (drumBuffer & 1) * 4.0 * (Math.random() * 14 + 1);
+                    var newBuffer = drumBuffer >> 1;
+                    if (((drumBuffer + newBuffer) & 1) == 1) {
+                        newBuffer += 15 << 2;
+                    }
+                    drumBuffer = newBuffer;
+                }
             }
             else {
                 throw new Error("Unrecognized drum index: " + index);
@@ -405,10 +476,10 @@ var beepbox = (function (exports) {
             return null;
         }
     }
-    EditorConfig.version = "0.151262345234";
+    EditorConfig.version = "1.0.0";
     EditorConfig.versionDisplayName = "TodBox " + EditorConfig.version;
     EditorConfig.presetCategories = toNameMap([
-        { name: "Custom Instruments", presets: toNameMap([
+       { name: "Custom Instruments", presets: toNameMap([
                 { name: "chip wave", customType: 0 },
                 { name: "FM (expert)", customType: 1 },
                 { name: "basic noise", customType: 2 },
@@ -416,19 +487,24 @@ var beepbox = (function (exports) {
                 { name: "drumset", customType: 4 },
                 { name: "harmonics", customType: 5 },
                 { name: "pulse width", customType: 6 },
-            ]) },
-        { name: "Retro Presets", presets: toNameMap([
+        ]) },
+        { name: "Retro Chip Presets", presets: toNameMap([
                 { name: "square wave", midiProgram: 80, settings: { "type": "chip", "transition": "seamless", "effects": "none", "chord": "arpeggio", "filterCutoffHz": 4000, "filterResonance": 0, "filterEnvelope": "steady", "wave": "square", "interval": "union", "vibrato": "none" } },
                 { name: "triangle wave", midiProgram: 71, settings: { "type": "chip", "transition": "seamless", "effects": "none", "chord": "arpeggio", "filterCutoffHz": 4000, "filterResonance": 0, "filterEnvelope": "steady", "wave": "triangle", "interval": "union", "vibrato": "none" } },
-                { name: "square lead", midiProgram: 80, generalMidi: true, settings: { "type": "chip", "transition": "hard", "effects": "reverb", "chord": "harmony", "filterCutoffHz": 2828, "filterResonance": 14, "filterEnvelope": "steady", "wave": "square", "interval": "hum", "vibrato": "none" } },
+                { name: "sawtooth wave", midiProgram: 80, settings: { "type": "chip", "transition": "seamless", "effects": "none", "chord": "arpeggio", "filterCutoffHz": 4000, "filterResonance": 0, "filterEnvelope": "steady", "wave": "sawtooth", "interval": "union", "vibrato": "none" } },
+                { name: "sine wave", midiProgram: 80, settings: { "type": "chip", "transition": "seamless", "effects": "none", "chord": "arpeggio", "filterCutoffHz": 4000, "filterResonance": 0, "filterEnvelope": "steady", "wave": "jummbox sine", "interval": "union", "vibrato": "none" } },
+                { name: "square lead", midiProgram: 80, generalMidi: true, settings: { "type": "chip", "transition": "hard", "effects": "reverb", "chord": "harmony", "filterCutoffHz": 2828, "filterResonance": 14, "filterEnvelope": "steady", "wave": "square", "interval": "hum", "vibrato": "none" } },                 
                 { name: "sawtooth lead 1", midiProgram: 81, generalMidi: true, settings: { "type": "chip", "transition": "hard", "effects": "reverb", "chord": "harmony", "filterCutoffHz": 2828, "filterResonance": 14, "filterEnvelope": "steady", "wave": "sawtooth", "interval": "shimmer", "vibrato": "none" } },
                 { name: "sawtooth lead 2", midiProgram: 81, settings: { "type": "chip", "effects": "reverb", "transition": "medium fade", "chord": "harmony", "filterCutoffHz": 5657, "filterResonance": 29, "filterEnvelope": "steady", "wave": "sawtooth", "interval": "hum", "vibrato": "light" } },
                 { name: "chip noise", midiProgram: 116, isNoise: true, settings: { "type": "noise", "transition": "hard", "effects": "none", "chord": "arpeggio", "filterCutoffHz": 4000, "filterResonance": 0, "filterEnvelope": "steady", "wave": "retro" } },
+        ]) },
+          { name: "Retro FM Presets", presets: toNameMap([
                 { name: "FM twang", midiProgram: 32, settings: { "type": "FM", "transition": "hard", "effects": "none", "chord": "harmony", "filterCutoffHz": 8000, "filterResonance": 0, "filterEnvelope": "steady", "vibrato": "none", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "feedbackEnvelope": "steady", "operators": [{ "frequency": "1×", "amplitude": 15, "envelope": "custom" }, { "frequency": "1×", "amplitude": 15, "envelope": "twang 2" }, { "frequency": "1×", "amplitude": 0, "envelope": "steady" }, { "frequency": "1×", "amplitude": 0, "envelope": "steady" }] } },
                 { name: "FM bass", midiProgram: 36, settings: { "type": "FM", "effects": "reverb", "transition": "hard", "chord": "custom interval", "filterCutoffHz": 8000, "filterResonance": 0, "filterEnvelope": "steady", "vibrato": "none", "algorithm": "1←(2 3←4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "feedbackEnvelope": "steady", "operators": [{ "frequency": "2×", "amplitude": 11, "envelope": "custom" }, { "frequency": "1×", "amplitude": 7, "envelope": "twang 2" }, { "frequency": "1×", "amplitude": 9, "envelope": "twang 3" }, { "frequency": "20×", "amplitude": 3, "envelope": "twang 2" }] } },
                 { name: "FM flute", midiProgram: 73, settings: { "type": "FM", "effects": "reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 8000, "filterResonance": 0, "filterEnvelope": "steady", "vibrato": "none", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "feedbackEnvelope": "steady", "operators": [{ "frequency": "1×", "amplitude": 15, "envelope": "custom" }, { "frequency": "1×", "amplitude": 6, "envelope": "twang 2" }, { "frequency": "1×", "amplitude": 0, "envelope": "steady" }, { "frequency": "1×", "amplitude": 0, "envelope": "steady" }] } },
                 { name: "FM organ", midiProgram: 16, settings: { "type": "FM", "effects": "reverb", "transition": "soft", "chord": "custom interval", "filterCutoffHz": 8000, "filterResonance": 0, "filterEnvelope": "steady", "vibrato": "delayed", "algorithm": "1←3 2←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 0, "feedbackEnvelope": "steady", "operators": [{ "frequency": "1×", "amplitude": 14, "envelope": "custom" }, { "frequency": "2×", "amplitude": 14, "envelope": "custom" }, { "frequency": "1×", "amplitude": 11, "envelope": "steady" }, { "frequency": "2×", "amplitude": 11, "envelope": "steady" }] } },
-            ]) },
+                { name: "FM distortion guitar", midiProgram: 30, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "hard", "chord": "strum", "filterCutoffHz": 8000, "filterResonance": 29, "filterEnvelope": "steady", "vibrato": "none", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 4, "feedbackEnvelope": "steady", "operators": [{ "frequency": "1×", "amplitude": 20, "envelope": "custom" }, { "frequency": "1×", "amplitude": 17, "envelope": "steady" }, { "frequency": "1×", "amplitude": 13, "envelope": "swell 1" }, { "frequency": "~2×", "amplitude": 12, "envelope": "swell 3" }] } },
+          ]) },
         { name: "Keyboard Presets", presets: toNameMap([
                 { name: "grand piano", midiProgram: 0, generalMidi: true, settings: { "type": "harmonics", "effects": "reverb", "transition": "hard fade", "chord": "harmony", "filterCutoffHz": 1414, "filterResonance": 14, "filterEnvelope": "twang 3", "interval": "piano", "vibrato": "none", "harmonics": [100, 100, 86, 86, 86, 71, 71, 71, 0, 86, 71, 71, 71, 57, 57, 71, 57, 14, 57, 57, 57, 57, 57, 57, 57, 57, 29, 57] } },
                 { name: "bright piano", midiProgram: 1, generalMidi: true, settings: { "type": "harmonics", "effects": "reverb", "transition": "hard fade", "chord": "harmony", "filterCutoffHz": 2000, "filterResonance": 14, "filterEnvelope": "twang 3", "interval": "piano", "vibrato": "none", "harmonics": [100, 100, 86, 86, 71, 71, 0, 71, 86, 86, 71, 71, 71, 14, 57, 57, 57, 57, 57, 57, 29, 57, 57, 57, 57, 57, 57, 57] } },
@@ -3282,11 +3358,11 @@ var beepbox = (function (exports) {
             this.key = 0;
             this.loopStart = 0;
             this.loopLength = 4;
-            this.tempo = 150;
+            this.tempo = 75;
             this.reverb = 0;
-            this.beatsPerBar = 8;
+            this.beatsPerBar = 4;
             this.barCount = 16;
-            this.patternsPerChannel = 8;
+            this.patternsPerChannel = 12;
             this.rhythm = 1;
             this.instrumentsPerChannel = 1;
             if (andResetChannels) {

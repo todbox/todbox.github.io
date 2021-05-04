@@ -53,7 +53,7 @@ var beepbox = (function (exports) {
         { name: "D", isWhiteKey: true, basePitch: 14 },
         { name: "D♯", isWhiteKey: false, basePitch: 15 },
         { name: "E", isWhiteKey: true, basePitch: 16 },
-        { name: "F / E♯", isWhiteKey: true, basePitch: 17 },
+        { name: "F♯", isWhiteKey: true, basePitch: 17 },
         { name: "F♯", isWhiteKey: false, basePitch: 18 },
         { name: "G", isWhiteKey: true, basePitch: 19 },
         { name: "G♯", isWhiteKey: false, basePitch: 20 },

@@ -65,7 +65,7 @@ var beepbox = (function (exports) {
     Config.blackKeyNameParents = [-1, 1, -1, 1, -1, 1, -1, -1, 1, -1, 1, -1];
     Config.tempoMin = -500;
     Config.tempoMax = 500;
-    Config.reverbRange = 8;
+    Config.reverbRange = 4;
     Config.beatsPerBarMin = 1;
     Config.beatsPerBarMax = 20;
     Config.barCountMin = 1;
@@ -151,9 +151,9 @@ var beepbox = (function (exports) {
         { name: "treble", spread: 0.0, offset: 7, volume: 0.7, sign: 1.0 },
     ]);
     Config.effectsNames = ["none", "reverb", "chorus", "chorus & reverb"];
-    Config.volumeRange = 16;
+    Config.volumeRange = 8;
     Config.volumeLogScale = -0.5;
-    Config.panCenter = 8;
+    Config.panCenter = 4;
     Config.panMax = Config.panCenter * 2;
     Config.chords = toNameMap([
         { name: "harmony", harmonizes: true, customInterval: false, arpeggiates: false, isCustomInterval: false, strumParts: 0 },

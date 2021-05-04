@@ -65,7 +65,7 @@ var beepbox = (function (exports) {
     Config.blackKeyNameParents = [-1, 1, -1, 1, -1, 1, -1, -1, 1, -1, 1, -1];
     Config.tempoMin = -500;
     Config.tempoMax = 500;
-    Config.reverbRange = 4;
+    Config.reverbRange = 8;
     Config.beatsPerBarMin = 1;
     Config.beatsPerBarMax = 20;
     Config.barCountMin = 1;
@@ -151,9 +151,9 @@ var beepbox = (function (exports) {
         { name: "treble", spread: 0.0, offset: 7, volume: 0.7, sign: 1.0 },
     ]);
     Config.effectsNames = ["none", "reverb", "chorus", "chorus & reverb"];
-    Config.volumeRange = 8;
+    Config.volumeRange = 16;
     Config.volumeLogScale = -0.5;
-    Config.panCenter = 4;
+    Config.panCenter = 8;
     Config.panMax = Config.panCenter * 2;
     Config.chords = toNameMap([
         { name: "harmony", harmonizes: true, customInterval: false, arpeggiates: false, isCustomInterval: false, strumParts: 0 },
@@ -257,9 +257,9 @@ var beepbox = (function (exports) {
     Config.harmonicsWavelength = 1 << 11;
     Config.pulseWidthRange = 8;
     Config.pitchChannelCountMin = 0;
-    Config.pitchChannelCountMax = 8;
+    Config.pitchChannelCountMax = 32;
     Config.noiseChannelCountMin = 0;
-    Config.noiseChannelCountMax = 4;
+    Config.noiseChannelCountMax = 8;
     Config.noiseInterval = 6;
     Config.pitchesPerOctave = 12;
     Config.drumCount = 12;
@@ -465,7 +465,7 @@ var beepbox = (function (exports) {
             return null;
         }
     }
-    EditorConfig.version = "1.0.0";
+    EditorConfig.version = "Pre-Alpha";
     EditorConfig.versionDisplayName = "TodBox " + EditorConfig.version;
     EditorConfig.presetCategories = toNameMap([
        { name: "Custom Instruments", presets: toNameMap([

@@ -104,6 +104,7 @@ var beepbox = (function (exports) {
         { name: "modbox viola", volume: 0.5, samples: centerAndNormalizeWave([-0.9, -1.0, -0.85, -0.775, -0.7, -0.6, -0.5, -0.4, -0.325, -0.225, -0.2, -0.125, -0.1, -0.11, -0.125, -0.15, -0.175, -0.18, -0.2, -0.21, -0.22, -0.21, -0.2, -0.175, -0.15, -0.1, -0.5, 0.75, 0.11, 0.175, 0.2, 0.25, 0.26, 0.275, 0.26, 0.25, 0.225, 0.2, 0.19, 0.18, 0.19, 0.2, 0.21, 0.22, 0.23, 0.24, 0.25, 0.26, 0.275, 0.28, 0.29, 0.3, 0.29, 0.28, 0.27, 0.26, 0.25, 0.225, 0.2, 0.175, 0.15, 0.1, 0.075, 0.0, -0.01, -0.025, 0.025, 0.075, 0.2, 0.3, 0.475, 0.6, 0.75, 0.85, 0.85, 1.0, 0.99, 0.95, 0.8, 0.675, 0.475, 0.275, 0.01, -0.15, -0.3, -0.475, -0.5, -0.6, -0.71, -0.81, -0.9, -1.0, -0.9]) },
         { name: "modbox guitar", volume: 0.5, samples: centerAndNormalizeWave([1.0, 1.0 / 2.0, 1.0 / 3.0, 1.0 / 4.0]) },
         { name: "modbox ramp pulse", volume: 0.5, samples: centerAndNormalizeWave([6.1, -2.9, 1.4, -2.9]) },
+        // the mobox viola needs changes as it sounds different due to the way newer beepbox versions handle their chip waves (either that, or I copy-pasted the wrong wave).
     ]);
     Config.chipNoises = toNameMap([
         { name: "retro", volume: 0.25, basePitch: 69, pitchFilterMult: 1024.0, isSoft: false, samples: null },
@@ -138,7 +139,6 @@ var beepbox = (function (exports) {
         { name: "heavy", amplitude: 0.45, periodsSeconds: [0.14], delayParts: 0 },
         { name: "shaky", amplitude: 0.1, periodsSeconds: [0.11, 1.618 * 0.11, 3 * 0.11], delayParts: 0 },
         { name: "very heavy", amplitude: 1, periodsSeconds: [0.14], delayParts: 0 },
-        { name: "very shaky", amplitude: 0.5, periodsSeconds: [0.11, 1.618 * 0.11, 3 * 0.11], delayParts: 0 },
     ]);
     Config.intervals = toNameMap([
         { name: "union", spread: 0.0, offset: 0.0, volume: 0.7, sign: 1.0 },
@@ -153,7 +153,7 @@ var beepbox = (function (exports) {
         { name: "error", spread: 9.5, offset: 0.0, volume: 1.0, sign: 1.3 },          
         { name: "bass", spread: 0.0, offset: -7, volume: 0.7, sign: 1.0 },   
         { name: "treble", spread: 0.0, offset: 7, volume: 0.7, sign: 1.0 },
-        { name: "detune (PLACEHOLDER)", spread: 0.02, offset: 1.0, volume: 1.0, sign: -1.0 },
+        { name: "test", spread: 0.07, offset: 1.0, volume: 1.0, sign: -15.3 },
     ]);
     Config.effectsNames = ["none", "reverb", "chorus", "chorus & reverb"];
     Config.volumeRange = 8;

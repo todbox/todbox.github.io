@@ -42,10 +42,10 @@ var beepbox = (function (exports) {
         { name: "Phrygian", realName: "dunno", flags: [true, true, false, true, false, true, false, true, true, false, true, false] },
         { name: "Dorian", realName: "dunno", flags: [true, false, true, true, false, true, false, true, false, true, true, false] },
         { name: "Jacked Toad", realName: "jacked toad", flags: [true, false, true, true, false, true, true, true, true, false, true, true] },
-        { name: "Whole Tone", realName: "Is built entirely of tritones. Only use if you know what you're doing!", flags: [true, false, true, false, true, false, true, false, true, false, true, false] },
+	{ name: "Stupidity (name still needs to be reworked)", realName: "Originally named 'dumb.'", flags: [true, false, false, false, false, true, true, true, true, false, false, true] },
+        { name: "Whole Tone", realName: "The 'whole tone' is built entirely of tritones, making for some slightly unpleasant sounds. Only use if you know what you're doing!", flags: [true, false, true, false, true, false, true, false, true, false, true, false] },
         { name: "Rythmic", realName: "Pretty straightforward.", flags: [true, false, false, false, false, false, false, false, false, false, false, false] },
         { name: "Custom Scale...", realName: "...", flags: [true, false, true, true, false, true, true, true, true, true, true, false] },
-        { name: "Dumb (change soon)", realName: "dumb", flags: [true, false, false, false, false, true, true, true, true, false, false, true] },
     ]);
     Config.keys = toNameMap([
         { name: "C", isWhiteKey: true, basePitch: 12 },
@@ -53,7 +53,7 @@ var beepbox = (function (exports) {
         { name: "D", isWhiteKey: true, basePitch: 14 },
         { name: "D♯", isWhiteKey: false, basePitch: 15 },
         { name: "E", isWhiteKey: true, basePitch: 16 },
-        { name: "F♯", isWhiteKey: true, basePitch: 17 },
+        { name: "F / E♯ (Toad can we keep this for constancy? If not that's ok too.)", isWhiteKey: true, basePitch: 17 },
         { name: "F♯", isWhiteKey: false, basePitch: 18 },
         { name: "G", isWhiteKey: true, basePitch: 19 },
         { name: "G♯", isWhiteKey: false, basePitch: 20 },
@@ -135,6 +135,7 @@ var beepbox = (function (exports) {
         { name: "heavy", amplitude: 0.45, periodsSeconds: [0.14], delayParts: 0 },
         { name: "shaky", amplitude: 0.1, periodsSeconds: [0.11, 1.618 * 0.11, 3 * 0.11], delayParts: 0 },
         { name: "very heavy", amplitude: 1, periodsSeconds: [0.14], delayParts: 0 },
+        { name: "very shaky", amplitude: 0.5, periodsSeconds: [0.11, 1.618 * 0.11, 3 * 0.11], delayParts: 0 },
     ]);
     Config.intervals = toNameMap([
         { name: "union", spread: 0.0, offset: 0.0, volume: 0.7, sign: 1.0 },

@@ -103,8 +103,8 @@ var beepbox = (function (exports) {
         { name: "buzz wave", volume: 0.5, samples: centerAndNormalizeWave([0, 1, 1, 2, 4, 4, 4, 4, 5, 5, 6, 6, 6, 7, 8, 8, 8, 9, 9, 9, 9, 9, 9, 8, 8, 8, 11, 15, 23, 62, 61, 60, 58, 56, 56, 54, 53, 52, 50, 49, 48, 47, 47, 45, 45, 45, 44, 44, 43, 43, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 43, 43, 53]) },
         { name: "modbox viola", volume: 0.45, samples: centerAndNormalizeWave([-0.9, -1.0, -0.85, -0.775, -0.7, -0.6, -0.5, -0.4, -0.325, -0.225, -0.2, -0.125, -0.1, -0.11, -0.125, -0.15, -0.175, -0.18, -0.2, -0.21, -0.22, -0.21, -0.2, -0.175, -0.15, -0.1, -0.5, 0.75, 0.11, 0.175, 0.2, 0.25, 0.26, 0.275, 0.26, 0.25, 0.225, 0.2, 0.19, 0.18, 0.19, 0.2, 0.21, 0.22, 0.23, 0.24, 0.25, 0.26, 0.275, 0.28, 0.29, 0.3, 0.29, 0.28, 0.27, 0.26, 0.25, 0.225, 0.2, 0.175, 0.15, 0.1, 0.075, 0.0, -0.01, -0.025, 0.025, 0.075, 0.2, 0.3, 0.475, 0.6, 0.75, 0.85, 0.85, 1.0, 0.99, 0.95, 0.8, 0.675, 0.475, 0.275, 0.01, -0.15, -0.3, -0.475, -0.5, -0.6, -0.71, -0.81, -0.9, -1.0, -0.9]) },
         { name: "modbox ramp pulse", volume: 0.5, samples: centerAndNormalizeWave([6.1, -2.9, 1.4, -2.9]) },
-        // the mobox viola needs changes as it sounds different due to the way newer beepbox versions handle their chip waves (either that, or I copy-pasted the wrong wave).
-       // However, most of the buzzing can be fixed by using a method similar to this; 
+        // the mobox viola needs changes as it sounds different due to the fact that newer Beepbox versions handle their chip waves differently
+       // However, most of the buzzing can be fixed by changing the filter settings; https://tinyurl.com/yhwhcegw
     ]);
     Config.chipNoises = toNameMap([
         { name: "retro", volume: 0.25, basePitch: 69, pitchFilterMult: 1024.0, isSoft: false, samples: null },
@@ -150,10 +150,8 @@ var beepbox = (function (exports) {
         { name: "octave", spread: 6.0, offset: 6.0, volume: 0.8, sign: 1.0 },
         { name: "bowed", spread: 0.02, offset: 0.0, volume: 1.0, sign: -1.0 },
         { name: "piano", spread: 0.01, offset: 0.0, volume: 1.0, sign: 0.7 },
-        { name: "error", spread: 9.5, offset: 0.0, volume: 1.0, sign: 1.3 },          
-        { name: "bass", spread: 0.0, offset: -7, volume: 0.7, sign: 1.0 },   
-        { name: "treble", spread: 0.0, offset: 7, volume: 0.7, sign: 1.0 },
-        { name: "test", spread: 0.07, offset: 1.0, volume: 1.0, sign: -15.3 },
+        { name: "error", spread: 9.5, offset: 0.0, volume: 1.0, sign: 1.3 },
+        { name: "error 2; the sequal", spread: 12.5, offset: 0.0, volume: 1.0, sign: 1.3 },          
     ]);
     Config.effectsNames = ["none", "reverb", "chorus", "chorus & reverb"];
     Config.volumeRange = 8;

@@ -98,7 +98,6 @@ var beepbox = (function (exports) {
         { name: "double pulse", volume: 0.4, samples: centerWave([1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, -1.0]) },
         { name: "spiky", volume: 0.4, samples: centerWave([1.0, -1.0, 1.0, -1.0, 1.0, 0.0]) },
 	{ name: "glitch", volume: 0.2, samples: centerWave([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0]) },
-        { name: "buzz wave", volume: 0.5, samples: centerAndNormalizeWave([0, 1, 1, 2, 4, 4, 4, 4, 5, 5, 6, 6, 6, 7, 8, 8, 8, 9, 9, 9, 9, 9, 9, 8, 8, 8, 11, 15, 23, 62, 61, 60, 58, 56, 56, 54, 53, 52, 50, 49, 48, 47, 47, 45, 45, 45, 44, 44, 43, 43, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 43, 43, 53]) },
 	{ name: "pokey square", volume: 0.5, samples: centerAndNormalizeWave([1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0, -1.0]) },
         { name: "pokey bass", volume: 0.5, samples: centerAndNormalizeWave([1.0, -1.0, 1.0, -1.0, 1.0]) },
         { name: "modbox viola", volume: 0.45, samples: centerAndNormalizeWave([-0.9, -1.0, -0.85, -0.775, -0.7, -0.6, -0.5, -0.4, -0.325, -0.225, -0.2, -0.125, -0.1, -0.11, -0.125, -0.15, -0.175, -0.18, -0.2, -0.21, -0.22, -0.21, -0.2, -0.175, -0.15, -0.1, -0.5, 0.75, 0.11, 0.175, 0.2, 0.25, 0.26, 0.275, 0.26, 0.25, 0.225, 0.2, 0.19, 0.18, 0.19, 0.2, 0.21, 0.22, 0.23, 0.24, 0.25, 0.26, 0.275, 0.28, 0.29, 0.3, 0.29, 0.28, 0.27, 0.26, 0.25, 0.225, 0.2, 0.175, 0.15, 0.1, 0.075, 0.0, -0.01, -0.025, 0.025, 0.075, 0.2, 0.3, 0.475, 0.6, 0.75, 0.85, 0.85, 1.0, 0.99, 0.95, 0.8, 0.675, 0.475, 0.275, 0.01, -0.15, -0.3, -0.475, -0.5, -0.6, -0.71, -0.81, -0.9, -1.0, -0.9]) },
@@ -109,7 +108,8 @@ var beepbox = (function (exports) {
         { name: "modbox ramp pulse", volume: 0.5, samples: centerAndNormalizeWave([6.1, -2.9, 1.4, -2.9]) },
 	{ name: "wackybox guitar string", volume: 0.1, samples: centerWave([0, 63, 63, 63, 63, 19, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 11, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 27, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 34, 63, 63, 63, 63]) },
 	{ name: "wackybox intense", volume: 0.1, samples: centerWave([36, 25, 33, 35, 18, 51, 22, 40, 27, 37, 31, 33, 25, 29, 41, 23, 31, 31, 45, 20, 37, 23, 29, 26, 42, 29, 33, 26, 31, 27, 40, 25, 40, 26, 37, 24, 41, 32, 0, 32, 33, 29, 32, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31]) },
-        // the mobox viola and brass needs changes as it sounds different due to the fact that newer Beepbox versions handle their chip waves differently
+        { name: "wackybox buzz wave", volume: 0.5, samples: centerAndNormalizeWave([0, 1, 1, 2, 4, 4, 4, 4, 5, 5, 6, 6, 6, 7, 8, 8, 8, 9, 9, 9, 9, 9, 9, 8, 8, 8, 11, 15, 23, 62, 61, 60, 58, 56, 56, 54, 53, 52, 50, 49, 48, 47, 47, 45, 45, 45, 44, 44, 43, 43, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 43, 43, 53]) },
+       //the mobox viola and brass needs changes as it sounds different due to the fact that newer Beepbox versions handle their chip waves differently
        // However, most of the buzzing can be fixed by changing the filter settings; https://tinyurl.com/yhwhcegw
     ]);
     Config.chipNoises = toNameMap([
@@ -145,7 +145,7 @@ var beepbox = (function (exports) {
         { name: "delayed", amplitude: 0.3, periodsSeconds: [0.14], delayParts: 18 },
         { name: "heavy", amplitude: 0.45, periodsSeconds: [0.14], delayParts: 0 },
         { name: "shaky", amplitude: 0.1, periodsSeconds: [0.11, 1.618 * 0.11, 3 * 0.11], delayParts: 0 },
-        { name: "very heavy", amplitude: 1, periodsSeconds: [0.14], delayParts: 0 },
+        { name: "very shaky", amplitude: 1, periodsSeconds: [0.14], delayParts: 0 },
 	{ name: "insane", amplitude: 10, periodsSeconds: [0.11, 1.618 * 0.11, 3 * 0.11], delayParts: 0 },
     ]);
     Config.intervals = toNameMap([
@@ -384,6 +384,17 @@ var beepbox = (function (exports) {
                     var newBuffer = drumBuffer >> 1;
                     if (((drumBuffer + newBuffer) & 1) == 1) {
                         newBuffer += 15 << 2;
+                    }
+                    drumBuffer = newBuffer;
+                }
+            }
+         else if (index == 7) {
+                let drumBuffer = 1;
+                for (let i = 0; i < Config.chipNoiseLength; i++) {
+                    wave[i] = (drumBuffer & 1) * 2.0 - 1.0;
+                    let newBuffer = drumBuffer >> 1;
+                    if (((drumBuffer + newBuffer) & 1) == 1) {
+                        newBuffer += 20 << 2;
                     }
                     drumBuffer = newBuffer;
                 }

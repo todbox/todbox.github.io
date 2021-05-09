@@ -60,7 +60,7 @@ var beepbox = (function (exports) {
         { name: "A", isWhiteKey: true, basePitch: 21 },
         { name: "A♯", isWhiteKey: false, basePitch: 22 },
         { name: "B", isWhiteKey: true, basePitch: 23 },
-        { name: "C2", isWhiteKey: false, basePitch: 24 },
+        { name: "B#", isWhiteKey: false, basePitch: 24 },
     ]);
     Config.blackKeyNameParents = [-1, 1, -1, 1, -1, 1, -1, -1, 1, -1, 1, -1];
     Config.tempoMin = -500;
@@ -1002,8 +1002,8 @@ var beepbox = (function (exports) {
 					--editor-background: black;
 					--hover-preview: #999999;
 					--playhead: #999999;
-					--primary-text: #DBDBDB;
-					--secondary-text: #D8D8D8;
+					--primary-text: #999999;
+					--secondary-text: #444444;
 					--inverted-text: black;
 					--text-selection: #999999;
 					--box-selection-fill: #999999;

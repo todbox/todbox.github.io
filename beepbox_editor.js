@@ -107,6 +107,8 @@ var beepbox = (function (exports) {
         { name: "modbox lyre", volume: 0.45, samples: centerAndNormalizeWave([1.0, -1.0, 4.0, 2.15, 4.13, 5.15, 0.0, -0.05, 1.0]) },
         { name: "modbox flatline", volume: 0.95, samples: centerAndNormalizeWave([1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]) },
         { name: "modbox ramp pulse", volume: 0.5, samples: centerAndNormalizeWave([6.1, -2.9, 1.4, -2.9]) },
+	{ name: "wackybox guitar string", volume: 0.1, samples: centerWave([0, 63, 63, 63, 63, 19, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 11, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 27, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 34, 63, 63, 63, 63]) },
+	{ name: "wackybox intense", volume: 0.1, samples: centerWave([36, 25, 33, 35, 18, 51, 22, 40, 27, 37, 31, 33, 25, 29, 41, 23, 31, 31, 45, 20, 37, 23, 29, 26, 42, 29, 33, 26, 31, 27, 40, 25, 40, 26, 37, 24, 41, 32, 0, 32, 33, 29, 32, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31]) },
         // the mobox viola and brass needs changes as it sounds different due to the fact that newer Beepbox versions handle their chip waves differently
        // However, most of the buzzing can be fixed by changing the filter settings; https://tinyurl.com/yhwhcegw
     ]);
@@ -118,6 +120,7 @@ var beepbox = (function (exports) {
         { name: "hollow", volume: 1.5, basePitch: 96, pitchFilterMult: 1.0, isSoft: true, samples: null },
         { name: "metallic", volume: 1.5, basePitch: 96, pitchFilterMult: 1024.0, isSoft: false, samples: null },
         { name: "cutter", volume: 0.05, basePitch: 96, pitchFilterMult: 1024.0, isSoft: false, samples: null },
+	{ name: "harsh", volume: 0.3, basePitch: 80, pitchFilterMult: 1024.0, isSoft: false, samples: null },
     ]);
     Config.filterCutoffMaxHz = 8000;
     Config.filterCutoffMinHz = 1;
@@ -143,6 +146,7 @@ var beepbox = (function (exports) {
         { name: "heavy", amplitude: 0.45, periodsSeconds: [0.14], delayParts: 0 },
         { name: "shaky", amplitude: 0.1, periodsSeconds: [0.11, 1.618 * 0.11, 3 * 0.11], delayParts: 0 },
         { name: "very heavy", amplitude: 1, periodsSeconds: [0.14], delayParts: 0 },
+	{ name: "insane", amplitude: 10, periodsSeconds: [0.11, 1.618 * 0.11, 3 * 0.11], delayParts: 0 },
     ]);
     Config.intervals = toNameMap([
         { name: "union", spread: 0.0, offset: 0.0, volume: 0.7, sign: 1.0 },

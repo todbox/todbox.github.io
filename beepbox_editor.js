@@ -1002,8 +1002,8 @@ var beepbox = (function (exports) {
 					--editor-background: black;
 					--hover-preview: #999999;
 					--playhead: #999999;
-					--primary-text: #999999;
-					--secondary-text: #444444;
+					--primary-text: #DBDBDB;
+					--secondary-text: #D8D8D8;
 					--inverted-text: black;
 					--text-selection: #999999;
 					--box-selection-fill: #999999;

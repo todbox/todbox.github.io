@@ -106,7 +106,7 @@ var beepbox = (function (exports) {
         { name: "modbox lyre", volume: 0.45, samples: centerAndNormalizeWave([1.0, -1.0, 4.0, 2.15, 4.13, 5.15, 0.0, -0.05, 1.0]) },
         { name: "modbox flatline", volume: 0.95, samples: centerAndNormalizeWave([1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]) },
         { name: "modbox ramp pulse", volume: 0.5, samples: centerAndNormalizeWave([6.1, -2.9, 1.4, -2.9]) },
-	{ name: "wackybox guitar string", volume: 0.1, samples: centerWave([0, 63, 63, 63, 63, 19, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 11, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 27, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 34, 63, 63, 63, 63]) },
+	{ name: "wackybox guitar string", volume: 0.05, samples: centerWave([0, 63, 63, 63, 63, 19, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 11, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 27, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 34, 63, 63, 63, 63]) },
 	{ name: "wackybox intense", volume: 0.1, samples: centerWave([36, 25, 33, 35, 18, 51, 22, 40, 27, 37, 31, 33, 25, 29, 41, 23, 31, 31, 45, 20, 37, 23, 29, 26, 42, 29, 33, 26, 31, 27, 40, 25, 40, 26, 37, 24, 41, 32, 0, 32, 33, 29, 32, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31]) },
         { name: "wackybox buzz wave", volume: 0.5, samples: centerAndNormalizeWave([0, 1, 1, 2, 4, 4, 4, 4, 5, 5, 6, 6, 6, 7, 8, 8, 8, 9, 9, 9, 9, 9, 9, 8, 8, 8, 11, 15, 23, 62, 61, 60, 58, 56, 56, 54, 53, 52, 50, 49, 48, 47, 47, 45, 45, 45, 44, 44, 43, 43, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 43, 43, 53]) },
        //the mobox viola and brass needs changes as it sounds different due to the fact that newer Beepbox versions handle their chip waves differently
@@ -14626,7 +14626,7 @@ var beepbox = (function (exports) {
                         Layout.setFullScreen(this._doc.fullScreen);
                         break;
                     case "colorTheme":
-                        this._doc.colorTheme = this._doc.colorTheme == "light classic" ? "dark classic" : "light classic";
+                        this._doc.colorTheme = this._doc.colorTheme == "Dark Mode" ? "dark classic" : "Dark Mode";
                         ColorConfig.setTheme(this._doc.colorTheme);
                         break;
                 }

@@ -25,7 +25,7 @@ var beepbox = (function (exports) {
     class Config {
     }
     Config.scales = toNameMap([
-        { name: "Chromatic (Free)", realName: "chromatic", flags: [true, true, true, true, true, true, true, true, true, true, true, true] },
+        { name: "Chromatic (Free)", realName: "Allows for any combination of notes. Be careful of dissonance!", flags: [true, true, true, true, true, true, true, true, true, true, true, true] },
         { name: "Major", realName: "Perphaps one of the most used scales in existance.", flags: [true, false, true, false, true, true, false, true, false, true, false, true] },
         { name: "Minor", realName: "Perphaps one of the most used scales in existance.", flags: [true, false, true, true, false, true, false, true, true, false, true, false] },
         { name: "Pentatonic Major", realName: "Very frequently used. Not much else to say.", flags: [true, false, true, false, true, false, false, true, false, true, false, false] },
@@ -41,7 +41,7 @@ var beepbox = (function (exports) {
         { name: "Locrian", realName: "dunno", flags: [true, true, false, true, false, true, true, false, true, false, true, false] },
         { name: "Phrygian", realName: "dunno", flags: [true, true, false, true, false, true, false, true, true, false, true, false] },
         { name: "Dorian", realName: "dunno", flags: [true, false, true, true, false, true, false, true, false, true, true, false] },
-        { name: "Jacked Toad", realName: "jacked toad", flags: [true, false, true, true, false, true, true, true, true, false, true, true] },
+        { name: "Jacked Toad", realName: "The scale used in the iconic song, Jacked Toad.", flags: [true, false, true, true, false, true, true, true, true, false, true, true] },
 	{ name: "Dumb", realName: "Originally named, currently named, and will always be named 'dumb.'", flags: [true, false, false, false, false, true, true, true, true, false, false, true] },
         { name: "Whole Tone", realName: "The 'whole tone' scale is built entirely of tritones, making for some slightly unpleasant sounds. Only use if you know what you're doing!", flags: [true, false, true, false, true, false, true, false, true, false, true, false] },
         { name: "Rythmic", realName: "Pretty straightforward.", flags: [true, false, false, false, false, false, false, false, false, false, false, false] },

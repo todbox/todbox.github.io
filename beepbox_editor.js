@@ -146,6 +146,8 @@ var beepbox = (function (exports) {
         { name: "shaky", amplitude: 0.1, periodsSeconds: [0.11, 1.618 * 0.11, 3 * 0.11], delayParts: 0 },
         { name: "very shaky", amplitude: 1, periodsSeconds: [0.14], delayParts: 0 },
 	{ name: "insane", amplitude: 10, periodsSeconds: [0.11, 1.618 * 0.11, 3 * 0.11], delayParts: 0 },
+        { name: "super insane", amplitude: 30, periodsSeconds: [0.11, 1.618 * 0.11, 3 * 0.11], delayParts: 1 },
+        { name: "annilator", amplitude: 90.0000000001, periodsSeconds: [0.11, 1.618 * 0.11, 3 * 0.11], delayParts: 1 },
     ]);
     Config.intervals = toNameMap([
         { name: "union", spread: 0.0, offset: 0.0, volume: 0.7, sign: 1.0 },
@@ -158,6 +160,7 @@ var beepbox = (function (exports) {
         { name: "bowed", spread: 0.02, offset: 0.0, volume: 1.0, sign: -1.0 },
         { name: "piano", spread: 0.01, offset: 0.0, volume: 1.0, sign: 0.7 },
         { name: "error", spread: 9.5, offset: 0.0, volume: 1.0, sign: 1.3 },
+        { name: "fart (name change soon like really soon)", spread: 13, offset: -5, volume: 1.0, sign: -3 },
     ]);
     Config.effectsNames = ["none", "reverb", "chorus", "chorus & reverb"];
     Config.volumeRange = 8;

@@ -159,6 +159,7 @@ var beepbox = (function (exports) {
         { name: "bowed", spread: 0.02, offset: 0.0, volume: 1.0, sign: -1.0 },
         { name: "piano", spread: 0.01, offset: 0.0, volume: 1.0, sign: 0.7 },
         { name: "error", spread: 9.5, offset: 0.0, volume: 1.0, sign: 1.3 },
+        { name: "test", spread: 0.01, offset: 0.0, volume: 1.0, sign: 2.15 },
     ]);
     Config.effectsNames = ["none", "reverb", "chorus", "chorus & reverb"];
     Config.volumeRange = 8;

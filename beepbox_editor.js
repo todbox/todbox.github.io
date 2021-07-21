@@ -30,7 +30,6 @@ var beepbox = (function (exports) {
         { name: "Minor", realName: "Perphaps one of the most used scales in existance.", flags: [true, false, true, true, false, true, false, true, true, false, true, false] },
         { name: "Pentatonic Major", realName: "Very frequently used. Not much else to say.", flags: [true, false, true, false, true, false, false, true, false, true, false, false] },
         { name: "Pentatonic Minor", realName: "Very frequently used. Not much else to say.", flags: [true, false, false, true, false, true, false, true, false, false, true, false] },
-        { name: "Altered Pentatonic", realName: "test", flags: [true, false, false, true, true, false, false, true, false, false, true, false] },
         { name: "Blues Major", realName: "The major version of the Blues scale.", flags: [true, false, true, true, true, false, false, true, false, true, false, false] },
         { name: "Blues Minor", realName: "The minor version of the Blues scale..", flags: [true, false, false, true, false, true, true, true, false, false, true, false] },
         { name: "Double Harmonic Major", realName: "Commonly used in Romani music.", flags: [true, true, false, false, true, true, false, true, true, false, false, true] },
@@ -43,9 +42,10 @@ var beepbox = (function (exports) {
         { name: "Dorian", realName: "dunno", flags: [true, false, true, true, false, true, false, true, false, true, true, false] },
         { name: "Jacked Toad", realName: "The scale used in the iconic song, Jacked Toad.", flags: [true, false, true, true, false, true, true, true, true, false, true, true] },
 	{ name: "Dumb", realName: "Originally named, currently named, and will always be named 'dumb.'", flags: [true, false, false, false, false, true, true, true, true, false, false, true] },
-        { name: "No Dabbing (Modbox)", flags: [true, true, false, true, true, true, true, true, true, false, true, false] },
-        { name: "Test Scale", flags: [true, true, false, false, false, true, true, false, false, true, true, false] },
-        { name: "Whole Tone", realName: "The 'whole tone' scale is built entirely of tritones, making for some slightly unpleasant sounds. Only use if you know what you're doing!", flags: [true, false, true, false, true, false, true, false, true, false, true, false] },
+        { name: "No Dabbing", realName: "A scale which originated from Modbox. Used often by Lognes.", flags:[true, true, false, true, true, true, true, true, true, false, true, false] },
+        { name: "Test Scale", realName: "**t", flags: [true, true, false, false, false, true, true, false, false, true, true, false] },
+        { name: "Whole Tone", realName: "The 'whole tone' scale is built entirely of tritones, making for some  unpleasant sounds. Only use if you know what you're doing!", flags: [true, false, true, false, true, false, true, false, true, false, true, false] },
+        { name: "Custom Scale...", realName: ".", flags:[true, false, true, true, false, true, true, true, true, true, true, false] },
     ]);
     Config.keys = toNameMap([
         { name: "C", isWhiteKey: true, basePitch: 12 },

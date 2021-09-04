@@ -11,6 +11,3 @@ Click [this link](https://todbox.github.io/) to try out Todbox! We'd love to hea
 Features listed with "~" are important features.
 
 ### 1.0.0 - ?????
-- Added custom scales ~
-- Added 'Megalovania guitar' chip wave ~
-- Other minor additions. 

@@ -4697,7 +4697,7 @@ var beepbox = (function (exports) {
             return this.tempo;
         }
     }
-    Song._format = "BeepBox";
+    Song._format = "TodBox";
     Song._oldestVersion = 2;
     Song._latestVersion = 8;
     class Tone {
